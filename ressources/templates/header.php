@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8"> <meta name="viewport" content="width=device-width">
   <title>Cathodic Ray Gaming</title>
-  <style>
-  <?php include 'crg.css'; ?>
-  </style>
   <link href="crg.css" rel="stylesheet">
 </head>
 <body onresize = "adaptheight()">
