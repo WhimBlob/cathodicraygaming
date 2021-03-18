@@ -1,13 +1,13 @@
 .container {
   width: 100vw;
-  font-family: minitel;
-  }
-  
-  #head {
-    background-image: url('ressources/imgs/gettyimages-475331861-2048x2048.jpg');
-  }  
+  font-family: "Minitel";
+}
 
-  /* For Sale */
+#head {
+  background-image: url("ressources/imgs/gettyimages-475331861-2048x2048.jpg");
+}
+
+/* For Sale */
 .product {
   width: 100vw;
   display: flex;
@@ -20,7 +20,7 @@
 #product2 {
   flex-direction: row-reverse;
   text-align: end;
-  background-color: #F7F5F4;
+  background-color: #f7f5f4;
 }
 
 .productimg {
