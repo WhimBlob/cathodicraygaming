@@ -28,6 +28,7 @@
 				<ul class="dropdown-menu">
 					<li><a href="sidebar-left.html">Premier produit</a></li>
 					<li class="active"><a href="sidebar-right.html">Deuxième produit</a></li>
+          <li><a href="zbleble">Troisième produit</a></li>
 				</ul>
       </div>
       <a href="inscription.php">S'inscrire</a>
