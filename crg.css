@@ -1,0 +1,42 @@
+.container {
+  width: 100vw;
+  font-family: minitel;
+  }
+  
+  #head {
+    background-image: url('ressources/imgs/gettyimages-475331861-2048x2048.jpg');
+  }  
+
+  /* For Sale */
+.product {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 0;
+}
+
+#product2 {
+  flex-direction: row-reverse;
+  text-align: end;
+  background-color: #F7F5F4;
+}
+
+.productimg {
+  width: 40vw;
+}
+
+.productext {
+  display: flex;
+  flex-direction: column;
+  padding: 5vw;
+}
+
+.prix {
+  font-size: 30px;
+}
+
+.stock {
+  font-size: 20px;
+}

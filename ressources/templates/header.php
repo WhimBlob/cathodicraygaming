@@ -10,7 +10,8 @@
     include 'ressources/templates/Progressus/assets/css/bootstrap.min.css';
     include 'ressources/templates/Progressus/assets/css/font-awesome.min.css';
     include 'ressources/templates/Progressus/assets/css/bootstrap-theme.css';
-    include 'ressources/templates/Progressus/assets/css/main.css'; ?>
+    include 'ressources/templates/Progressus/assets/css/main.css';
+    include 'crg.css' ?>
   </style>
 </head>
 <body onresize ="adaptheight()">
@@ -22,18 +23,18 @@
 		<a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Cathodic Ray Gaming"></a>
 	</div>
 	<nav class="navbar-collapse collapse nav navbar-nav pull-right">
-			<a class="active" href="#">Accueil</a>
-			<div class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages produits<b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="sidebar-left.html">Premier produit</a></li>
-					<li class="active"><a href="sidebar-right.html">Deuxième produit</a></li>
-          <li><a href="zbleble">Troisième produit</a></li>
-				</ul>
-      </div>
-      <a href="inscription.php">S'inscrire</a>
-      <a href="profil.php">Mon Compte</a>
-			<a href="panier.php">Panier</a>
+		<li><a class="active" href="#">Accueil</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages produits<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="sidebar-left.html">Premier produit</a></li>
+				<li class="active"><a href="sidebar-right.html">Deuxième produit</a></li>
+        <li><a href="zbleble">Troisième produit</a></li>
+			</ul>
+    </li>
+    <li><a href="inscription.php">S'inscrire</a></li>
+    <li><a href="profil.php">Mon Compte</a></li>
+		<li><a href="panier.php">Panier</a></li>
   </nav><!--/.nav-collapse -->
 	<!-- /.navbar -->
 </header>
