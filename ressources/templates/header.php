@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
   <title>Cathodic Ray Gaming</title>
-  <link href="crg.css" rel="stylesheet">
+  <style>
+    <?php include 'ressources/templates/Progressus/assets/css/bootstrap.min.css';
+    include 'ressources/templates/Progressus/assets/css/bootstrap.min.css';
+    include 'ressources/templates/Progressus/assets/css/font-awesome.min.css';
+    include 'ressources/templates/Progressus/assets/css/bootstrap-theme.css';
+    include 'ressources/templates/Progressus/assets/css/main.css'; ?>
+  </style>
 </head>
-<body onresize = "adaptheight()">
-<header>
-    <nav>
-      <div>
-        <a href = "https://cathodicraygaming.000webhost.com">Cathodic Ray Gaming</a>
+<body onresize ="adaptheight()">
+<header class="navbar navbar-inverse navbar-fixed-top headroom container">
+	<!-- Fixed navbar -->
+	<div class="navbar-header">
+			<!-- Button for smallest screens -->
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+		<a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Cathodic Ray Gaming"></a>
+	</div>
+	<nav class="navbar-collapse collapse nav navbar-nav pull-right">
+			<a class="active" href="#">Accueil</a>
+			<div class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages produits<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="sidebar-left.html">Premier produit</a></li>
+					<li class="active"><a href="sidebar-right.html">Deuxième produit</a></li>
+				</ul>
       </div>
-      <div id="nav2">
-        <a href = "https://www.labonnegraine.com/">Login</a>
-        <a href = "https://www.labonnegraine.com/">Sign-up</a>
-        <a href = "https://www.labonnegraine.com/">Account</a>
-        <a href = "https://www.labonnegraine.com/">Panier</a>
-      </div>
-    </nav>
-  </header>
+      <a href="inscription.php">S'inscrire</a>
+      <a href="profil.php">Mon Compte</a>
+			<a href="panier.php">Panier</a>
+  </nav><!--/.nav-collapse -->
+	<!-- /.navbar -->
+</header>
