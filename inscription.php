@@ -13,7 +13,7 @@
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h3 class="thin text-center">Register a new account</h3>
+							<h2 class="thin text-center">Register a new account</h3>
 							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="signin.html">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
 							<hr>
               <form action="" method="post">
@@ -41,7 +41,7 @@
                   <label for="num_tel" class="form-label">Votre Numéro de téléphone</label>
                   <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= $champNumTel; ?>">
                 </div>
-                <input type="submit" value="Envoyer les données" name="envoyer" id ="envoyer" class="btn btn-action">
+                <input type="submit" value="S'inscrire" name="envoyer" id ="envoyer" class="btn btn-action">
               </form>
 						</div>
 					</div>

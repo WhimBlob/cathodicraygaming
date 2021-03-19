@@ -29,14 +29,14 @@
     <nav class="navbar-collapse collapse nav navbar-nav pull-right">
       <li><a class="active" href="index.php">Accueil</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages produits<b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produits<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#l">Premier produit</a></li>
-          <li class="active"><a href="#">Deuxième produit</a></li>
+          <li><a href="#">Deuxième produit</a></li>
           <li><a href="#">Troisième produit</a></li>
         </ul>
       </li>
-      <li><a href="inscription.php">S'inscrire</a></li>
+      <!-- <li><a href="inscription.php">S'inscrire</a></li> -->
       <li><a href="profil.php">Mon Compte</a></li>
       <li><a href="panier.php">Panier</a></li>
     </nav>

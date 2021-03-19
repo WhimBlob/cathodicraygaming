@@ -4,7 +4,7 @@
     	<!-- Hero -->
 	<section id="head">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="herotext">
 				<h1 class="lead">For a nice retro feel</h1>
 				<p class="tagline">Check out our 4K 140 FPS gaming screens based on the design of old Cathodic Ray TVs.</p>
 			</div>
@@ -13,6 +13,7 @@
 
     <!-- For Sale -->
     <section id = "forsale">
+      <h2>Nos articles</h2>
       <article id = "product1" class = "product">
         <div class = productext>
           <h3 class = "productname" id = "productname1">Name 1</h3>
