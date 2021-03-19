@@ -7,6 +7,21 @@
   background-image: url("ressources/imgs/gettyimages-475331861-2048x2048.jpg");
 }
 
+h2 {
+  font-family: 'minitel';
+}
+
+main {
+  position: relative;
+  top: 100px;
+  margin-bottom: 100px;
+}
+
+#herotext {
+  position: relative;
+  bottom: 100px;
+}
+
 /* For Sale */
 .product {
   width: 100vw;
@@ -25,7 +40,7 @@
 
 .productimg {
   width: 40vw;
-  height: 26.14vw;
+  height: 22.47vw;
 }
 
 .productext {
@@ -44,4 +59,21 @@
 
 #envoyer {
   margin-top: 20px;
+}
+
+/* Page Inscription */
+.btn {
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 1150px) {
+  nav {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  h2 {
+    font-size: 25px;
+  }
 }
