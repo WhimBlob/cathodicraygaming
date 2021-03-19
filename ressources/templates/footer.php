@@ -65,19 +65,10 @@
     </div>
   </div>
 
-
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="ressources/js/headroom.min.js"></script>
   <script src="ressources/js/jQuery.headroom.min.js"></script>
   <script src="ressources/js/template.js"></script>
   <script src="ressources/js/template.js"></script>
-  <script>
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', function() {
-      myInput.focus()
-    })
-  </script>
 
 </footer>
