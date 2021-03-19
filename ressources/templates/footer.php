@@ -19,10 +19,10 @@
           <h3 class="widget-title">Follow us</h3>
           <div class="widget-body">
             <p class="follow-me-icons clearfix">
-              <a href=""><i class="fa fa-twitter fa-2"></i></a>
-              <a href=""><i class="fa fa-dribbble fa-2"></i></a>
-              <a href=""><i class="fa fa-github fa-2"></i></a>
-              <a href=""><i class="fa fa-facebook fa-2"></i></a>
+              <a href="" alt="twitter"><i class="fa fa-twitter fa-2"></i></a>
+              <a href="" alt="dribble"><i class="fa fa-dribbble fa-2"></i></a>
+              <a href="" alt="github"><i class="fa fa-github fa-2"></i></a>
+              <a href="" alt="facebook"><i class="fa fa-facebook fa-2"></i></a>
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="assets/js/headroom.min.js"></script>
-  <script src="assets/js/jQuery.headroom.min.js"></script>
-  <script src="assets/js/template.js"></script>
+  <script src="ressources/js/headroom.min.js"></script>
+  <script src="ressources/js/jQuery.headroom.min.js"></script>
+  <script src="ressources/js/template.js"></script>
 </footer>
