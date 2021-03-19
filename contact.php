@@ -1,4 +1,4 @@
-<?php include 'assets/templates/header.php' ?>
+<?php include 'ressources/templates/header.php' ?>
 <!-- container -->
 <div class="container">
 

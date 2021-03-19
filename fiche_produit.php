@@ -1,7 +1,10 @@
-<?php include 'config/template/head.php'; ?>
+<?php include 'ressources/templates/header.php'; ?>
 <header>
-    <?php include 'config/template/nav.php'; ?>
+
 </header>
 <h2 class="text-center mt-5 mb-5">Page fiche produit</h2>
 <hr>
-<?php include 'config/template/footer.php'; ?>
+
+
+<?php include 'ressources/templates/footer.php'; ?>
+

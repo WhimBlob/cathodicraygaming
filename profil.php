@@ -1,11 +1,11 @@
-
+<?php include 'ressources/templates/header.php' ?>
 <header>
-    
+    <title> CRG: Connexion </title>
 </header>
-<h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client, [CLIENT]</h2>
-<button class="profil_button"> Deconnexion </button>
-<hr>
 
+<h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client, [CLIENT]</h2>
+<hr>
+<button class="profil_button"> Deconnexion </button>
 <div class="profil">
     <h2>MON PROFIL</h2>
     <button class="profil_button">MODIFIER</button>
@@ -35,5 +35,4 @@
 
 </div>
 
-
-
+<?php include 'ressources/templates/footer.php' ?>
