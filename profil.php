@@ -36,7 +36,7 @@
         </div>
 
         <div class="order">
-            <h2>MES COMMANDES</h2>
+            <h2 class="page-title">MES COMMANDES</h2>
 
         </div>
     </section>
