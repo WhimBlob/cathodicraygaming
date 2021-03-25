@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Minitel";
+  src: url("ressources/fonts/Minitel.woff") format("woff");
+}
+
 .container {
   width: 100vw;
   font-family: "Minitel";
@@ -13,11 +18,11 @@ header {
 }
 
 #head .lead {
-  font-family: 'minitel';
+  font-family: "minitel";
 }
 
 h2 {
-  font-family: 'minitel';
+  font-family: "minitel";
 }
 
 main {
@@ -33,7 +38,7 @@ main {
 }
 
 .page-title {
-  font-family: 'minitel';
+  font-family: "minitel";
   color: white;
 }
 
@@ -54,7 +59,7 @@ main {
 }
 
 .productname {
-  font-family: 'minitel';
+  font-family: "minitel";
 }
 
 .productimg {
@@ -70,12 +75,12 @@ main {
 
 .prix {
   font-size: 30px;
-  font-family: 'minitel';
+  font-family: "minitel";
 }
 
 .stock {
   font-size: 20px;
-  font-family: 'minitel';
+  font-family: "minitel";
 }
 
 #envoyer {
@@ -91,6 +96,14 @@ main {
   width: 100%;
 }
 
+.page {
+  margin-left: 300px;
+  display: flex;
+  text-align: center;
+}
+.profile {
+  margin-left: 50px;
+}
 
 @media only screen and (max-width: 1150px) {
   nav {
@@ -130,8 +143,8 @@ main {
 
 .checkoutparts {
   width: 40vw;
-} 
+}
 
 #panier {
-  background-color: #191919
+  background-color: #191919;
 }
