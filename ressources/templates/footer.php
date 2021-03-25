@@ -69,6 +69,5 @@
   <script src="ressources/js/headroom.min.js"></script>
   <script src="ressources/js/jQuery.headroom.min.js"></script>
   <script src="ressources/js/template.js"></script>
-  <script src="ressources/js/template.js"></script>
 
 </footer>
