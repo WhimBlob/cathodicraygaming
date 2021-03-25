@@ -3,6 +3,10 @@
   font-family: "Minitel";
 }
 
+header {
+  font-family: "Minitel";
+}
+
 #head {
   background-image: url("ressources/imgs/gettyimages-475331861-2048x2048.jpg");
 }
@@ -15,6 +19,7 @@ main {
   position: relative;
   top: 100px;
   margin-bottom: 100px;
+  width: 100vw;
 }
 
 #herotext {
@@ -76,4 +81,26 @@ main {
   h2 {
     font-size: 25px;
   }
+}
+
+/* Panier */
+.cartarticles {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartarticle {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.greybar {
+  width: 90vw;
+  height: 2px;
+  background-color: gray;
+  border-radius: 2px;
+  margin: 20px;
 }

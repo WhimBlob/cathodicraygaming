@@ -9,7 +9,6 @@
   <style>
     <?php
     include 'ressources/css/bootstrap.min.css';
-    include 'ressources/css/bootstrap.min.css';
     include 'ressources/css/font-awesome.min.css';
     include 'ressources/css/bootstrap-theme.css';
     include 'ressources/css/main.css';
@@ -19,7 +18,7 @@
 </head>
 
 <body onresize="adaptheight()">
-  <header class="navbar navbar-inverse navbar-fixed-top headroom container">
+  <header class="navbar navbar-inverse navbar-fixed-top headroom">
     <!-- Fixed navbar -->
     <div class="navbar-header">
       <!-- Button for smallest screens -->
