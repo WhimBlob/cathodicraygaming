@@ -105,6 +105,16 @@ main {
   margin-left: 50px;
 }
 
+.profil_button {
+  text-align: center;
+  background-color: #ff9b22;
+  color: #f7f5f4;
+  height: 30px;
+  font-family: "Minitel";
+  border-radius: 5;
+  border: none;
+}
+
 @media only screen and (max-width: 1150px) {
   nav {
     font-size: 15px;
