@@ -1,10 +1,10 @@
 <?php include 'ressources/templates/header.php'; ?>
-<main class="container">
+<main class="container" id="panier">
   <ul class="breadcrumb">
     <li><a href="index.html">Accueil</a></li>
     <li class="active">Panier</li>
   </ul>
-  <section class="col-xs-12 maincontent row cartarticles">
+  <section class="col-xs-12 maincontent row" id="cartarticles">
     <h1 class="page-title">Panier</h1>
     <!-- Product -->
     <article class="col-md-6 col-sm-8 cartarticle">
@@ -51,5 +51,11 @@
       <p class="price">€ 149,00</p>
     </article>
     <div class="greybar"></div>
+    <article class="col-md-6 col-sm-8 cartarticle" id="checkout">
+      <p id="total" class="checkoutparts">Total :</p>
+      <input type="submit" value="Paiement" name="pay" id="pay" class="btn btn-action checkoutparts">
+    </article>
+    <div class="greybar"></div>
   </section>
+</main>
 <?php include 'ressources/templates/footer.php'; ?>

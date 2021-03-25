@@ -1,7 +1,7 @@
 <?php include 'ressources/templates/header.php'; ?>
 
 <!-- container -->
-<main class="container">
+<main class="container" id="inscription">
   <ul class="breadcrumb">
     <li><a href="index.html">Accueil</a></li>
     <li class="active">Inscription</li>
