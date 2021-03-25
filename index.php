@@ -13,6 +13,7 @@
 
     <!-- For Sale -->
     <section id = "forsale">
+      <h2>Get a look at our best sales</h2>
       <article id = "product1" class = "product">
         <div class = productext>
           <h3 class = "productname" id = "productname1">Name 1</h3>
@@ -29,7 +30,7 @@
           <p class = "prix">300€</p>
           <p class = "stock">Disponible</p>
         </div>
-        <img id = "productimg" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
+        <img id = "product2img" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
       </article>
       <article id = "product3" class = "product">
         <div class = productext>
@@ -38,7 +39,7 @@
           <p class = "prix">300€</p>
           <p class = "stock">Disponible</p>
         </div>
-        <img id = "product1img" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
+        <img class = "product3img" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
       </article>
     </section>
   </main>

@@ -11,7 +11,7 @@
     <!-- Product Picture -->
       <img class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt="Cathodic-Ray TV">
     <!-- Product Name -->
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+      <h2>"Lorem ipsum dolor sit amet"</h2>
     <!-- Avalability -->
       <p>En stock</p>
     <!-- Dropdown number -->
@@ -33,15 +33,15 @@
     <!-- Product Picture -->
       <img class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt="Cathodic-Ray TV">
     <!-- Product Name -->
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+      <h2>"Lorem ipsum dolor sit amet"</h2>
     <!-- Avalability -->
       <p>En stock</p>
     <!-- Dropdown number -->
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           1
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
           <a class="dropdown-item" href="#">2</a>
           <a class="dropdown-item" href="#">3</a>
           <a class="dropdown-item" href="#">4</a>
@@ -52,7 +52,7 @@
     </article>
     <div class="greybar"></div>
     <article class="col-md-6 col-sm-8 cartarticle" id="checkout">
-      <p id="total" class="checkoutparts">Total :</p>
+      <h2 id="total" class="checkoutparts">Total :</h2>
       <input type="submit" value="Paiement" name="pay" id="pay" class="btn btn-action checkoutparts">
     </article>
     <div class="greybar"></div>
