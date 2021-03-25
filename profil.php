@@ -7,7 +7,7 @@
         <li><a href="index.html">Home</a></li>
         <li class="active">Mon Compte</li>
     </ol>
-    <section class="col-xs-12 maincontent row" id="cartarticles">
+    <section class="profil-content">
         <div class="profil">
             <h2 class="page-title">MON PROFIL</h2>
             <button class="profil_button" id='2'>MODIFIER</button>
