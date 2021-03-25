@@ -19,7 +19,7 @@
           <form action="" method="post">
             <div class="top-margin">
               <label for="prenom" class="form-label">Votre Prénom</label>
-              <input type="text" class="form-control" id="nom" placeholder="Votre Prénom" name="prenom" value="<?= $champPrenom; ?>">
+              <input type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= $champPrenom; ?>">
             </div>
             <div class="top-margin">
               <label for="nom" class="form-label">Votre Nom</label>
@@ -47,6 +47,5 @@
       </div>
     </div>
   </section>
-  </div>
 </main> <!-- /container -->
 <?php include 'ressources/templates/footer.php'; ?>
