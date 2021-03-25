@@ -1,4 +1,4 @@
-  <?php include 'ressources/templates/header.php'?>
+  <?php include 'ressources/templates/header.php';?>
   <main>
 
     	<!-- Hero -->
@@ -42,6 +42,6 @@
       </article>
     </section>
   </main>
-  <?php include 'ressources/templates/footer.php'?>
+  <?php include 'ressources/templates/footer.php';?>
 </body>
 </html>

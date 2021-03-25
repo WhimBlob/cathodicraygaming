@@ -1,4 +1,4 @@
-<?php include 'ressources/templates/header.php' ?>
+<?php include 'ressources/templates/header.php'; ?>
 <header>
     <title> CRG: Connexion </title>
 </header>
@@ -35,4 +35,4 @@
 
 </div>
 
-<?php include 'ressources/templates/footer.php' ?>
+<?php include 'ressources/templates/footer.php'; ?>

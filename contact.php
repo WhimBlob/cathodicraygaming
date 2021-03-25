@@ -1,4 +1,4 @@
-<?php include 'ressources/templates/header.php' ?>
+<?php include 'ressources/templates/header.php'; ?>
 <!-- container -->
 <div class="container">
 
@@ -66,7 +66,6 @@
 
     </aside>
     <!-- /Sidebar -->
-
   </div>
 </div> <!-- /container -->
 

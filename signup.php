@@ -1,4 +1,4 @@
-<?php include 'ressources/templates/header.php' ?>
+<?php include 'ressources/templates/header.php'; ?>
 
 
 <head>
@@ -77,4 +77,4 @@
 
   </div>
 </div> <!-- /container -->
-<?php include 'ressources/templates/footer.php' ?>
+<?php include 'ressources/templates/footer.php'; ?>
