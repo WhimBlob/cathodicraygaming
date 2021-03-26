@@ -22,7 +22,7 @@
     <!-- Fixed navbar -->
     <div class="navbar-header">
       <!-- Button for smallest screens -->
-      <button type="button" class="navbar-toggle"  aria-label="burger" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <button type="button" class="navbar-toggle" aria-label="burger" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand" href="index.html"><img src="ressources/images/logo.png" alt="Cathodic Ray Gaming"></a>
     </div>
     <nav class="navbar-collapse collapse nav navbar-nav pull-right">
@@ -36,7 +36,7 @@
         </ul>
       </li>
       <!-- <li><a href="inscription.php">S'inscrire</a></li> -->
-      <li><a href="profil.php">Mon Compte</a></li>
+      <li><a href="signin.php">Mon Compte</a></li>
       <li><a href="panier.php">Panier</a></li>
     </nav>
     <!--/.nav-collapse -->

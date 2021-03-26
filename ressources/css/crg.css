@@ -18,11 +18,11 @@ header {
 }
 
 #head .lead {
-  font-family: "minitel";
+  font-family: "Minitel";
 }
 
 h2 {
-  font-family: "minitel";
+  font-family: "Minitel";
 }
 
 main {
@@ -38,7 +38,7 @@ main {
 }
 
 .page-title {
-  font-family: "minitel";
+  font-family: "Minitel";
   color: white;
 }
 
@@ -59,7 +59,7 @@ main {
 }
 
 .productname {
-  font-family: "minitel";
+  font-family: "Minitel";
 }
 
 .productimg {
@@ -75,12 +75,12 @@ main {
 
 .prix {
   font-size: 30px;
-  font-family: "minitel";
+  font-family: "Minitel";
 }
 
 .stock {
   font-size: 20px;
-  font-family: "minitel";
+  font-family: "Minitel";
 }
 
 #envoyer {
@@ -96,13 +96,23 @@ main {
   width: 100%;
 }
 
-.page {
-  margin-left: 300px;
-  display: flex;
-  text-align: center;
+#profil {
+  background-color: #191919;
 }
-.profile {
-  margin-left: 50px;
+.profil-content {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profil_button {
+  text-align: center;
+  background-color: #ff9b22;
+  color: #f7f5f4;
+  height: 30px;
+  font-family: "Minitel";
+  border-radius: 5;
+  border: none;
 }
 
 @media only screen and (max-width: 1150px) {
