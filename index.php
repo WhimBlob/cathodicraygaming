@@ -13,6 +13,7 @@
 
     <!-- For Sale -->
     <section id="forsale">
+      <h2>Venez voir nos articles phares !</h2>
       <article id="product1" class="product">
         <div class=productext>
           <h3 class="productname" id="productname1">Name 1</h3>
