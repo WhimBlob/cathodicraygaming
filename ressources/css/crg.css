@@ -158,3 +158,9 @@ main {
 #panier {
   background-color: #191919;
 }
+
+.productoutext {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
