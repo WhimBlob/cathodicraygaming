@@ -1,6 +1,6 @@
 <?php include 'ressources/templates/header.php'; ?>
 
-<div class="container" id='profil'>
+<main class="container" id='profil'>
     <h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client, [CLIENT]</h2>
     <hr>
     <ol class="breadcrumb">
@@ -40,5 +40,5 @@
 
         </div>
     </section>
-</div>
+</main>
 <?php include 'ressources/templates/footer.php'; ?>

@@ -1,5 +1,3 @@
-<? include 'header.php' ?>
-
 <footer id="footer" class="top-space">
 
   <div class="footer1">
@@ -21,10 +19,10 @@
           <h3 class="widget-title">Follow us</h3>
           <div class="widget-body">
             <p class="follow-me-icons clearfix">
-              <a href="" alt="twitter"><i class="fa fa-twitter fa-2"></i></a>
-              <a href="" alt="dribble"><i class="fa fa-dribbble fa-2"></i></a>
-              <a href="" alt="github"><i class="fa fa-github fa-2"></i></a>
-              <a href="" alt="facebook"><i class="fa fa-facebook fa-2"></i></a>
+              <a href="https://twitter.com/">Twitter<i class="fa fa-twitter fa-2"></i></a>
+              <a href="https://dribbble.com/">Dribble<i class="fa fa-dribbble fa-2"></i></a>
+              <a href="https://github.com/">Github<i class="fa fa-github fa-2"></i></a>
+              <a href="https://www.facebook.com/">Facebook<i class="fa fa-facebook fa-2"></i></a>
             </p>
           </div>
         </div>
@@ -64,10 +62,8 @@
       </div> <!-- /row of widgets -->
     </div>
   </div>
-
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="ressources/js/headroom.min.js"></script>
-  <script src="ressources/js/jQuery.headroom.min.js"></script>
-  <script src="ressources/js/template.js"></script>
-
 </footer>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="ressources/js/headroom.min.js"></script>
+</body>
+</html>

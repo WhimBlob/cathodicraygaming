@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Minitel";
-  src: url("ressources/fonts/Minitel.woff") format("woff");
+  src: url("../../ressources/fonts/Minitel.woff") format("woff");
 }
 
 .container {
@@ -13,8 +13,13 @@ header {
   width: 100vw;
 }
 
+.navbar-brand {
+    height: 80px;
+    width: 80px;
+}
+
 #head {
-  background-image: url("ressources/imgs/gettyimages-475331861-2048x2048.jpg");
+  background-image: url("../../ressources/imgs/gettyimages-475331861-2048x2048.jpg");
 }
 
 #head .lead {
@@ -111,7 +116,7 @@ main {
   color: #f7f5f4;
   height: 30px;
   font-family: "Minitel";
-  border-radius: 5;
+  border-radius: 5px;
   border: none;
 }
 
@@ -124,6 +129,12 @@ main {
   h2 {
     font-size: 25px;
   }
+}
+
+@media (min-width: 768px) {
+.navpart {
+    float: left;
+    }
 }
 
 /* Panier */
@@ -163,4 +174,14 @@ main {
   display: flex;
   flex-direction: column;
   width: 40vw;
+}
+
+/*Page produit*/
+#ajoutpanier {
+  display: flex;
+  justify-content: space-between;
+}
+
+#butajout {
+  width: 70%;
 }
