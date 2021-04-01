@@ -1,3 +1,5 @@
+<?php session_start() ?>
+<?php include 'ressources/config.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 

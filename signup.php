@@ -6,11 +6,11 @@
 </head>
 
 <!-- container -->
-<div class="container">
+<main class="container" id="inscription">
 
   <ol class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li class="active">Registration</li>
+    <li><a href="index.html">Accueil</a></li>
+    <li class="active">S'inscrire</li>
   </ol>
 
   <div class="row">
@@ -28,29 +28,37 @@
             <p class="text-center text-muted"><a href="signin.php">Log in</a></p>
             <hr>
 
-            <form>
-              <div class="top-margin">
-                <label>First Name</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="top-margin">
-                <label>Last Name</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="top-margin">
-                <label>Email Address <span class="text-danger">*</span></label>
-                <input type="text" class="form-control">
-              </div>
+            <form action="profil.php" method="post">
 
+              <div class="top-margin">
+                <label for="prenom" class="form-label">Votre Prénom</label>
+                <input type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= $champPrenom; ?>">
+              </div>
+              <div class="top-margin">
+                <label for="nom" class="form-label">Votre Nom</label>
+                <input type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= $champNom; ?>">
+              </div>
+              <div class="top-margin">
+                <label for="mail" class="form-label">Votre E-mail</label>
+                <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= $champEmail; ?>">
+              </div>
               <div class="row top-margin">
                 <div class="col-sm-6">
-                  <label>Password <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control">
+                  <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= $champMdp; ?>">
                 </div>
                 <div class="col-sm-6">
                   <label>Confirm Password <span class="text-danger">*</span></label>
                   <input type="text" class="form-control">
                 </div>
+              </div>
+              <div class="top-margin">
+                <label for="adresse" class="form-label">Votre Adresse</label>
+                <input type="text" class="form-control" id="adresse" placeholder="Votre Adresse" name="adresse" value="<?= $champAdresse; ?>">
+              </div>
+              <div class="top-margin">
+                <label for="num_tel" class="form-label">Votre Numéro de téléphone</label>
+                <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= $champNumTel; ?>">
               </div>
 
               <hr>
@@ -63,7 +71,7 @@
                   </label>
                 </div>
                 <div class="col-lg-4 text-right">
-                  <button class="btn btn-action" type="submit">Register</button>
+                 <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
                 </div>
               </div>
             </form>
@@ -76,5 +84,5 @@
     <!-- /Article -->
 
   </div>
-</div> <!-- /container -->
+</main> <!-- /container -->
 <?php include 'ressources/templates/footer.php'; ?>

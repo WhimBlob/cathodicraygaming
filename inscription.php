@@ -41,7 +41,7 @@
               <label for="num_tel" class="form-label">Votre Numéro de téléphone</label>
               <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= $champNumTel; ?>">
             </div>
-            <input type="submit" value="Envoyer les données" name="envoyer" id="envoyer" class="btn btn-action">
+            <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
           </form>
         </div>
       </div>

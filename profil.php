@@ -1,7 +1,7 @@
 <?php include 'ressources/templates/header.php'; ?>
 
 <main class="container" id='profil'>
-    <h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client, [CLIENT]</h2>
+    <h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client, <?php $fullname ?></h2>
     <hr>
     <ol class="breadcrumb">
         <li><a href="index.html">Home</a></li>
@@ -16,7 +16,7 @@
 
             <div class="profil_content">
                 <label for="">Adresse e-mail:</label>
-                <p class="customer_mail">adresse.mail@test.fr</p>
+                <p class="customer_mail"><?php $_SESSION ?></p>
             </div>
 
             <div class="profil_content">
