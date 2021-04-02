@@ -1,13 +1,14 @@
 <?php
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=cathodic_ray_gamer;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$pdo = new PDO('mysql:host=localhost;dbname=cathodic_ray_gamer;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(PDOException $e)
 {
   die('<ul><li>Erreur sur le fichier : ' . $e->getFile() . '</li><li>Erreur à la ligne ' . $e->getLine() . '</li><li>Message derreur : ' . $e->getMessage() . '</li></ul>');
-  
 }
+
+$content = "";
 
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
@@ -17,9 +18,9 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
   $mdpCrypt = password_hash($mdp, PASSWORD_DEFAULT);
 
   $queryInsert = "INSERT INTO
-  'users' ('id_user', 'prenom', 'nom', 'email', 'mdp', 'adresse', 'num_tel', 'rights') VALUES (:id_user, :prenom, :nom, :email, :mdp, :adresse, :num_tel, :rights)";
+  users (id_user, prenom, nom, email, mdp, adresse, num_tel, rights) VALUES (:id_user, :prenom, :nom, :email, :mdp, :adresse, :num_tel, '0')";
 
-  $reqPrep = $bdd->prepare($queryInsert);
+  $reqPrep = $pdo->prepare($queryInsert);
   $reqPrep->execute(
     [
       'id_user' => NULL,
@@ -29,9 +30,9 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
       'mdp' => $mdpCrypt, //Puisque mot de passe crypté
       'adresse' => $adresse,
       'num_tel' => $num_tel,
-      'rights' => 'FALSE',
     ]
   );
+  exit();
 }
 
 // Check connection
@@ -52,13 +53,13 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 //     }
 // }
 
-if(isset($_SESSION['email'])) {
-$firstname = $bdd->prepare('SELECT prenom FROM users WHERE email = ?');
-$firstname->execute(array($_SESSION['email']));
+// if(isset($_SESSION['email'])) {
+// $firstname = $pdo->prepare('SELECT prenom FROM users WHERE email = ?');
+// $firstname->execute(array($_SESSION['email']));
 
-$lastname = $bdd->prepare('SELECT nom FROM users WHERE email = ?');
-$lastname->execute(array($_SESSION['email']));
-}
+// $lastname = $pdo->prepare('SELECT nom FROM users WHERE email = ?');
+// $lastname->execute(array($_SESSION['email']));
+// }
 
 
 // Pour maintenir les réponses lors du rechargement de la page

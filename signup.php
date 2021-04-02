@@ -28,7 +28,7 @@
             <p class="text-center text-muted"><a href="signin.php">Log in</a></p>
             <hr>
 
-            <form action="profil.php" method="post">
+            <form action="profil.php" method="POST">
 
               <div class="top-margin">
                 <label for="prenom" class="form-label">Votre Prénom</label>
@@ -39,7 +39,7 @@
                 <input type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= $champNom; ?>">
               </div>
               <div class="top-margin">
-                <label for="mail" class="form-label">Votre E-mail</label>
+                <label for="email" class="form-label">Votre E-mail</label>
                 <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= $champEmail; ?>">
               </div>
               <div class="row top-margin">
