@@ -16,28 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `produits`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `produits`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `produits` (
-  `id_produit` int(1) NOT NULL AUTO_INCREMENT,
-  `stock` int(4) NOT NULL,
-  `prix` float NOT NULL,
-  `nom_produit` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_produit`)
+CREATE TABLE `users` (
+  `id_user` int(3) NOT NULL AUTO_INCREMENT,
+  `email` varchar(40) NOT NULL,
+  `num_tel` int(10) NOT NULL,
+  `prenom` varchar(20) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `rights` tinyint(1) NOT NULL,
+  `mdp` varchar(80) NOT NULL,
+  `adresse` text NOT NULL,
+  PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produits`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `produits` WRITE;
-/*!40000 ALTER TABLE `produits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `produits` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-01 22:28:23
+-- Dump completed on 2021-04-06 17:51:35
