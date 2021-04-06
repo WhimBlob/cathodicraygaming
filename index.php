@@ -16,30 +16,30 @@
       <h2>Nos meilleures ventes sont ici</h2>
       <article id = "product1" class = "product">
         <div class = productext>
-          <h3 class = "productname" id = "productname1">Name 1</h3>
-          <p class = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed massa vel justo luctus interdum. Nam nec tempor metus. Vivamus bibendum euismod justo, rutrum scelerisque nulla efficitur nec. Sed elit est, aliquet non diam sit amet, faucibus auctor lacus.</p>
-          <p class = "prix">300€</p>
-          <p class = "stock">Disponible</p>
+          <h3 class = "productname" id = "productname1"><?php echo $productName1?></h3>
+          <p class = "description"><?php echo $productDesc1?></p>
+          <p class = "prix"><?php echo $productPrice1?></p>
+          <p class = "stock"><?php echo $availability1?></p>
         </div>
-        <img id = "product1img" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt="Cathodic-Ray TV">
+        <img id = "product1img" class = "productimg" src="ressources/imgs/<?php echo $productImg1?>" alt="Cathodic-Ray TV">
       </article>
       <article id = "product2" class = "product">
         <div class = productext>
-          <h3 class = "productname" id = "productname2">Name 2</h3>
-          <p class = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed massa vel justo luctus interdum. Nam nec tempor metus. Vivamus bibendum euismod justo, rutrum scelerisque nulla efficitur nec. Sed elit est, aliquet non diam sit amet, faucibus auctor lacus.</p>
-          <p class = "prix">300€</p>
-          <p class = "stock">Disponible</p>
+          <h3 class = "productname" id = "productname2"><?php echo $productName2?></h3>
+          <p class = "description"><?php echo $productDesc2?></p>
+          <p class = "prix"><?php echo $productPrice2?></p>
+          <p class = "stock"><?php echo $availability2?></p>
         </div>
-        <img id = "productimg" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
+        <img id = "productimg" class = "productimg" src="ressources/imgs/<?php echo $productImg2?>" alt = "Cathodic-Ray TV">
       </article>
       <article id = "product3" class = "product">
         <div class = productext>
-          <h3 class = "productname" id = "productname3">Name 3</h3>
-          <p class = "description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed massa vel justo luctus interdum. Nam nec tempor metus. Vivamus bibendum euismod justo, rutrum scelerisque nulla efficitur nec. Sed elit est, aliquet non diam sit amet, faucibus auctor lacus.</p>
-          <p class = "prix">300€</p>
-          <p class = "stock">Disponible</p>
+          <h3 class = "productname" id = "productname3"><?php echo $productName3?></h3>
+          <p class = "description"><?php echo $productDesc3?></p>
+          <p class = "prix"><?php echo $productPrice3?></p>
+          <p class = "stock"><?php echo $availability3?></p>
         </div>
-        <img id = "product3img" class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt = "Cathodic-Ray TV">
+        <img id = "product3img" class = "productimg" src="ressources/imgs/<?php echo $productImg3?>" alt = "Cathodic-Ray TV">
       </article>
     </section>
   </main>

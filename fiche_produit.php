@@ -15,20 +15,22 @@
       <div class = "productoutext">
       <!-- Product Name -->
         <h2><?php echo $product ?></h2>
+        <!-- Description -->
+        <p><?php echo $productDesc ?></p>
       <!-- Availability -->
         <p><?php echo $availability ?></p>
       <!-- Ajout Panier -->
-      <form id="ajoutpanier" method="post">
-        <select id="nbajout" name="nbajout">
-          <option class="dropdown-item" value="1">1</option>
-          <option class="dropdown-item" value="2">2</option>
-          <option class="dropdown-item" value="3">3</option>
-          <option class="dropdown-item" value="4">4</option>
-        </select>
-        <input class="btn btn-secondary" id="butajout" type="submit" value="Ajouter au panier"></input>
-      </form>
       <!-- Prix -->
         <p class="price"><?php echo $productPrice ?>€</p>
+        <form id="ajoutpanier" method="post">
+          <select id="nbajout" name="nbajout">
+            <option class="dropdown-item" value="1">1</option>
+            <option class="dropdown-item" value="2">2</option>
+            <option class="dropdown-item" value="3">3</option>
+            <option class="dropdown-item" value="4">4</option>
+          </select>
+          <input class="btn btn-secondary" id="butajout" type="submit" value="Ajouter au panier"></input>
+        </form>
       </div> 
     </article>
     <div class="greybar"></div>

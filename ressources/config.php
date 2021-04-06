@@ -12,7 +12,7 @@ $content = "";
 
 // Les trois premiers produits
 // Premier produit
-$queryProduct1 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '1'");
+$queryProduct1 = $pdo->query("SELECT * FROM `produits` WHERE id_produit = '001'");
 $dataProduct1 = $queryProduct1->fetch();
 $productName1 = $dataProduct1['nom_produit'];
 $productStock1 = $dataProduct1['stock'];
@@ -20,7 +20,7 @@ $productPrice1 = $dataProduct1['prix'];
 $productImg1 = $dataProduct1['url_img_produit'];
 $productDesc1 = $dataProduct1['description_produit'];
 // Deuxième produit
-$queryProduct2 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '2'");
+$queryProduct2 = $pdo->query("SELECT * FROM `produits` WHERE id_produit = '002'");
 $dataProduct2 = $queryProduct2->fetch();
 $productName2 = $dataProduct2['nom_produit'];
 $productStock2 = $dataProduct2['stock'];
@@ -28,7 +28,7 @@ $productPrice2 = $dataProduct2['prix'];
 $productImg2 = $dataProduct2['url_img_produit'];
 $productDesc2 = $dataProduct2['description_produit'];
 // Troisième produit
-$queryProduct3 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '3'");
+$queryProduct3 = $pdo->query("SELECT * FROM `produits` WHERE id_produit = '003'");
 $dataProduct3 = $queryProduct3->fetch();
 $productName3 = $dataProduct3['nom_produit'];
 $productStock3 = $dataProduct3['stock'];
@@ -36,6 +36,23 @@ $productPrice3 = $dataProduct3['prix'];
 $productImg3 = $dataProduct3['url_img_produit'];
 $productDesc3 = $dataProduct3['description_produit'];
 
+// Fonction pour afficher les stocks sur les trois produits
+function Availability($nbproduct)
+{
+  if(($nbproduct) > 10) {
+    $availability = 'En Stock';
+  }
+    else if($nbproduct > 0) {
+      $availability = 'Il en reste ' . $nbproduct;
+    }
+    else {
+      $availability = 'Non disponible';
+    }
+  return $availability;
+}
+$availability1 = Availability($productStock1);
+$availability2 = Availability($productStock2);
+$availability3 = Availability($productStock3);
 
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
