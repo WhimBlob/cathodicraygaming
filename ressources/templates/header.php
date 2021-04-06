@@ -25,7 +25,7 @@
     <ul class="navbar-collapse collapse nav navbar-nav pull-right">
       <li><a class="active" href="index.php">Accueil</a></li>
       <li class="dropdown">
-        <a href="https://cathodicscreens.000webhostapp.com/fiche_produit.php" class="dropdown-toggle" data-toggle="dropdown">Produits<b class="caret"></b></a>
+        <a href="fiche_produit.php?product=CRG1" class="dropdown-toggle" data-toggle="dropdown">Produits<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#">Premier produit</a></li>
           <li><a href="#">Deuxième produit</a></li>

@@ -10,6 +10,33 @@ catch(PDOException $e)
 
 $content = "";
 
+// Les trois premiers produits
+// Premier produit
+$queryProduct1 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '1'");
+$dataProduct1 = $queryProduct1->fetch();
+$productName1 = $dataProduct1['nom_produit'];
+$productStock1 = $dataProduct1['stock'];
+$productPrice1 = $dataProduct1['prix'];
+$productImg1 = $dataProduct1['url_img_produit'];
+$productDesc1 = $dataProduct1['description_produit'];
+// Deuxième produit
+$queryProduct2 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '2'");
+$dataProduct2 = $queryProduct2->fetch();
+$productName2 = $dataProduct2['nom_produit'];
+$productStock2 = $dataProduct2['stock'];
+$productPrice2 = $dataProduct2['prix'];
+$productImg2 = $dataProduct2['url_img_produit'];
+$productDesc2 = $dataProduct2['description_produit'];
+// Troisième produit
+$queryProduct3 = $pdo->prepare("SELECT * FROM `produits` WHERE id_produit = '3'");
+$dataProduct3 = $queryProduct3->fetch();
+$productName3 = $dataProduct3['nom_produit'];
+$productStock3 = $dataProduct3['stock'];
+$productPrice3 = $dataProduct3['prix'];
+$productImg3 = $dataProduct3['url_img_produit'];
+$productDesc3 = $dataProduct3['description_produit'];
+
+
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
@@ -71,4 +98,21 @@ $champMdp = $_POST['mdp'] ?? null;
 $champAdresse = $_POST['adresse'] ?? null;
 $champNumTel = $_POST['num_tel'] ?? null;
 
+?>
+
+<?php
+// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+if (isset($_FILES['imageproduit']) AND $_FILES['imageproduit']['error'] == 0)
+{
+                // Testons si l'extension est autorisée
+                $infosfichier = pathinfo($_FILES['imageproduit']['name']);
+                $extension_upload = $infosfichier['extension'];
+                $extensions_autorisees = array('jpg', 'jpeg', 'png');
+                if (in_array($extension_upload, $extensions_autorisees))
+                {
+                        // On peut valider le fichier et le stocker définitivement
+                        move_uploaded_file($_FILES['imageproduit']['tmp_name'], 'uploads/' . basename($_FILES['imageproduit']['name']));
+                        echo "Image en ligne !";
+                }
+}
 ?>
