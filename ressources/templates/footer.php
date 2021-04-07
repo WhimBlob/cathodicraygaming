@@ -62,6 +62,10 @@
       </div> <!-- /row of widgets -->
     </div>
   </div>
+  <?php
+  $queryProduct->closeCursor();
+  $queryProduct3->closeCursor();
+  ?>
 </footer>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="ressources/js/headroom.min.js"></script>
