@@ -22,14 +22,14 @@
       <!-- Ajout Panier -->
       <!-- Prix -->
         <p class="price"><?php echo $productPrice ?>€</p>
-        <form id="ajoutpanier" method="post">
-          <select id="nbajout" name="nbajout">
+        <form action="fiche_produit.php?product=<?php echo $product?>" id="ajoutpanier" method="post">
+          <select id="nbajout<?php echo $product ?>" name="nbajout<?php echo $product ?>">
             <option class="dropdown-item" value="1">1</option>
             <option class="dropdown-item" value="2">2</option>
             <option class="dropdown-item" value="3">3</option>
             <option class="dropdown-item" value="4">4</option>
           </select>
-          <input class="btn btn-secondary" id="butajout" type="submit" value="Ajouter au panier"></input>
+          <input class="btn btn-secondary" id="ajoutpanier" name="ajoutpanier" type="submit" value="Ajouter au panier"></input>
         </form>
       </div> 
     </article>

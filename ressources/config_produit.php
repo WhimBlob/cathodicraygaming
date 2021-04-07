@@ -16,6 +16,14 @@ else {
   header('Location: 404.php');
 }
 
+// Gestion des ajouts paniers
+$_SESSION['panier' . $product] = 0;
+if(isset($_POST['ajoutpanier']) && $_POST['ajoutpanier'] == "Ajouter au panier") {
+
+  extract($_POST); //convertir les indices sous la forme de variable
+  $_SESSION['panier' . $product]= ($_SESSION['panier' . $product] + $_POST['nbajout' . $product]);
+}
+
 if($productStock > 10) {
   $availability = 'En Stock';
 }
@@ -25,4 +33,5 @@ if($productStock > 10) {
   else {
     $availability = 'Non disponible';
   }
+
 ?>

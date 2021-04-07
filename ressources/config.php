@@ -13,6 +13,16 @@ $content = "";
 // On déclaire i pour les boucles produits
 $i = 0;
 
+// On déclare le prix total
+$prixtotal = 0;
+
+// Lancer l'achat
+if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
+
+
+}
+
+
 // On sort toute la table produits
 $queryProduct = $pdo->query("SELECT * FROM `produits`");
 

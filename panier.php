@@ -7,59 +7,32 @@
   <section class="col-xs-12 maincontent row" id="cartarticles">
     <h1 class="page-title">Panier</h1>
     <!-- Product -->
-    <article class="col-md-6 col-sm-8 cartarticle">
-    <!-- Product Picture -->
-      <img class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt="Cathodic-Ray TV">
-      <div class = "productoutext">
-      <!-- Product Name -->
-        <h2>"Lorem ipsum dolor sit amet"</h2>
-      <!-- Avalability -->
-        <p>En stock</p>
-      <!-- Dropdown number -->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            1
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">2</a>
-            <a class="dropdown-item" href="#">3</a>
-            <a class="dropdown-item" href="#">4</a>
-          </div>
-        </div>
-      <!-- Prix -->
-        <p class="price">€ 149,00</p>
-      </div> 
-    </article>
-    <div class="greybar"></div>
-    <article class="col-md-6 col-sm-8 cartarticle">
-    <!-- Product Picture -->
-      <img class = "productimg" src="ressources/imgs/157612182_259155989105775_9145309204689973689_n.png" alt="Cathodic-Ray TV">
-      <div class = "productoutext">
-      <!-- Product Name -->
-        <h2>"Lorem ipsum dolor sit amet"</h2>
-      <!-- Avalability -->
-        <p>En stock</p>
-      <!-- Dropdown number -->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            1
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <a class="dropdown-item" href="#">2</a>
-            <a class="dropdown-item" href="#">3</a>
-            <a class="dropdown-item" href="#">4</a>
-          </div>
-        </div>
-      <!-- Prix -->
-        <p class="price">€ 149,00</p>
+    <?php while ($dataProduct = $queryProduct->fetch()) 
+      {
+        if (isset($_SESSION['panier' . $dataProduct['nom_produit']])) 
+        {
+          $nbajout = $_SESSION['panier' . $dataProduct['nom_produit']];
+          $prixtotal = $prixtotal + $nbajout*$dataProduct['prix'];
+    ?>
+    <article id = "product<?php echo $i ?>" class = "product">
+      <div class = productext>
+        <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $dataProduct['nom_produit']?>'><?php echo $dataProduct['nom_produit']?></a></h3>
+        <p class = "description"><?php echo $dataProduct['description_produit']?></p>
+        <p class = "prix"><?php echo $dataProduct['prix']?>€</p>
+        <p class = "stock"><?php echo Availability($dataProduct['stock'])?></p>
+        <p class = "nbpanier">Vous en avez <?php echo $nbajout ?> dans le panier pour un total de <?php echo $nbajout*$dataProduct['prix']?>€</p>
       </div>
+      <img id = "product1img" class = "productimg" src="ressources/imgs/<?php echo $dataProduct['url_img_produit']?>" alt="Cathodic-Ray TV">
     </article>
     <div class="greybar"></div>
-    <article class="col-md-6 col-sm-8 cartarticle" id="checkout">
-      <h2 id="total" class="checkoutparts">Total :</h2>
-      <input type="submit" value="Paiement" name="pay" id="pay" class="btn btn-action checkoutparts">
+    <?php
+      }
+    }
+    ?>
+    <article id ="total">
+      <p>Total = <?php echo $prixtotal ?> €</p>
+      <input class="btn btn-secondary" id="acheter" name="acheter" type="submit" value="Acheter"></input>
     </article>
-    <div class="greybar"></div>
   </section>
 </main>
 <?php include 'ressources/templates/footer.php'; ?>

@@ -195,3 +195,8 @@ main {
 #butajout {
   width: 70%;
 }
+
+/* Page panier */
+#total {
+  display: flex;
+}
