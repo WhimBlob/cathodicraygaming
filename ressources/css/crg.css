@@ -177,6 +177,15 @@ main {
   width: 40vw;
 }
 
+/* Redirection */
+#main4 {
+  height: 50vw;
+}
+
+#main4 h1{
+  font-family: 'Minitel';
+}
+
 /*Page produit*/
 #ajoutpanier {
   display: flex;

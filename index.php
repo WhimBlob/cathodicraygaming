@@ -19,7 +19,7 @@
       ?>
       <article id = "product<?php echo $i ?>" class = "product">
         <div class = productext>
-          <h3 class = "productname" id = "productname1"><?php echo $dataProduct3['nom_produit']?></h3>
+          <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $dataProduct3['nom_produit']?>'><?php echo $dataProduct3['nom_produit']?></a></h3>
           <p class = "description"><?php echo $dataProduct3['description_produit']?></p>
           <p class = "prix"><?php echo $dataProduct3['prix']?></p>
           <p class = "stock"><?php echo Availability($dataProduct3['stock'])?></p>
