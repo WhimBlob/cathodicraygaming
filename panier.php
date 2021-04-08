@@ -9,22 +9,21 @@
     <!-- Product -->
     <?php while ($dataProduct = $queryProduct->fetch()) 
       {
-        if (isset($_SESSION['panier' . $dataProduct['nom_produit']])) 
+        if (isset($_SESSION['panier' . $dataProduct['nom_produit']]) && $_SESSION['panier' . $dataProduct['nom_produit']] >0 ) 
         {
-          $nbajout = $_SESSION['panier' . $dataProduct['nom_produit']];
-          $prixtotal = $prixtotal + $nbajout*$dataProduct['prix'];
     ?>
+    <?php include 'ressources/config_panier.php'; ?>
     <article id = "product<?php echo $i ?>" class = "product">
       <div class = productext>
-        <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $dataProduct['nom_produit']?>'><?php echo $dataProduct['nom_produit']?></a></h3>
+        <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $product?>'><?php echo $product?></a></h3>
         <p class = "description"><?php echo $dataProduct['description_produit']?></p>
         <p class = "prix"><?php echo $dataProduct['prix']?>€</p>
         <p class = "stock"><?php echo Availability($dataProduct['stock'])?></p>
-        <p class = "nbpanier">Vous en avez <?php echo $nbajout ?> dans le panier pour un total de <?php echo $nbajout*$dataProduct['prix']?>€</p>
-        <form action="#" id="retraitpanier" method="post">
-          <select id="nbretrait<?php echo $dataProduct['nom_produit'] ?>" name="nbretrait<?php echo $dataProduct['nom_produit'] ?>">
-            <?php
-            for ($j=1; $j <= $nbajout; $j++) {
+        <p class = "nbpanier">Vous en avez <?php echo $_SESSION['panier' . $dataProduct['nom_produit']] ?> dans le panier pour un total de <?php echo $_SESSION['panier' . $dataProduct['nom_produit']]*$dataProduct['prix']?>€</p>
+        <form action="#" id="retirerpanier" method="post">
+          <select id="nbretrait<?php echo $product ?>" name="nbretrait<?php echo $product ?>">
+          <?php
+            for ($j=1; $j <= $_SESSION['panier' . $dataProduct['nom_produit']]; $j++) {
               ?>
             <option class="dropdown-item" value="<?php echo $j?>"><?php echo $j?></option>
             <?php

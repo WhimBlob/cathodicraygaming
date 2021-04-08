@@ -13,15 +13,6 @@ $content = "";
 // On déclaire i pour les boucles produits
 $i = 0;
 
-// On déclare le prix total
-$prixtotal = 0;
-
-// Lancer l'achat
-if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
-
-
-}
-
 // On sort toute la table produits
 $queryProduct = $pdo->query("SELECT * FROM `produits`");
 
@@ -41,6 +32,15 @@ function Availability($nbproduct)
       $availability = 'Non disponible';
     }
   return $availability;
+}
+
+// On déclare le prix total
+$prixtotal = 0;
+
+// Lancer l'achat
+if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
+
+
 }
 
 // Get the register form
@@ -66,14 +66,6 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
     ]
   );
   exit();
-}
-
-// Gestion des retraits paniers
-if(isset($_POST['retraitpanier']) && $_POST['retraitpanier'] == "Retirer du Panier") {
-
-  extract($_POST); //convertir les indices sous la forme de variable
-  $_SESSION['panier' . $dataProduct['nom_produit']]= ($_SESSION['panier' . $nbpanier] - $_POST['nbretrait' . $dataProduct['nom_produit']]);
-  
 }
 
 // Check connection
