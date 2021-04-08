@@ -17,7 +17,7 @@ else {
 }
 
 // Gestion des ajouts paniers
-$_SESSION['panier' . $product] = 0;
+$_SESSION['panier' . $product];
 if(isset($_POST['ajoutpanier']) && $_POST['ajoutpanier'] == "Ajouter au panier") {
 
   extract($_POST); //convertir les indices sous la forme de variable
