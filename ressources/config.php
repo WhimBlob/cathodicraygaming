@@ -39,8 +39,17 @@ $prixtotal = 0;
 
 // Lancer l'achat
 if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
-
-
+  while ($dataProduct = $queryProduct->fetch()) 
+  {
+    if (isset($_SESSION['panier' . $dataProduct['nom_produit']]) && $_SESSION['panier' . $dataProduct['nom_produit']] >0 ) 
+    {
+      $achatPrep = $pdo->prepare("UPDATE produits SET stock = stock - :stock WHERE nom_produit = :nom_produit");
+      $achatPrep->execute(array(
+        'stock' => $_SESSION['panier' . $dataProduct['nom_produit']],
+        'nom_produit' => $dataProduct['nom_produit']
+      ));
+    }
+  }
 }
 
 // Get the register form

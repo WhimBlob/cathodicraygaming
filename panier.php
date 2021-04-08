@@ -40,7 +40,7 @@
       }
     }
     ?>
-    <article id ="total">
+    <form action='#' id ="total" method="post">
       <p>Total = <?php echo $prixtotal ?> €</p>
       <input class="btn btn-secondary" id="acheter" name="acheter" type="submit" value="Acheter"></input>
     </article>
