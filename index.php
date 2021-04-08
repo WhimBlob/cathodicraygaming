@@ -15,7 +15,7 @@
     <section id = "forsale">
       <h2>Nos meilleures ventes sont ici</h2>
       <?php while ($dataProduct3 = $queryProduct3->fetch()) 
-      { $i++
+      { $i++;
       ?>
       <article id = "product<?php echo $i ?>" class = "product">
         <div class = productext>

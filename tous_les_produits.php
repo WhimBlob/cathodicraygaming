@@ -3,7 +3,7 @@
   <section id = "forsale">
       <h2>Ci-dessous, tous nos produits</h2>
       <?php while ($dataProduct = $queryProduct->fetch()) 
-      { $i++
+      { $i++;
       ?>
       <article id = "product<?php echo $i ?>" class = "product">
         <div class = productext>
@@ -17,7 +17,6 @@
         <?php
         }
         ?>
-      </article>
     </section>
   </main>
   <?php include 'ressources/templates/footer.php'?>

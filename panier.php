@@ -21,6 +21,18 @@
         <p class = "prix"><?php echo $dataProduct['prix']?>€</p>
         <p class = "stock"><?php echo Availability($dataProduct['stock'])?></p>
         <p class = "nbpanier">Vous en avez <?php echo $nbajout ?> dans le panier pour un total de <?php echo $nbajout*$dataProduct['prix']?>€</p>
+        <form action="#" id="retraitpanier" method="post">
+          <select id="nbretrait<?php echo $dataProduct['nom_produit'] ?>" name="nbretrait<?php echo $dataProduct['nom_produit'] ?>">
+            <?php
+            for ($j=1; $j <= $nbajout; $j++) {
+              ?>
+            <option class="dropdown-item" value="<?php echo $j?>"><?php echo $j?></option>
+            <?php
+            }
+            ?>
+          </select>
+          <input class="btn btn-secondary" id="retraitpanier" name="retraitpanier" type="submit" value="Retirer du panier"></input>
+        </form>
       </div>
       <img id = "product1img" class = "productimg" src="ressources/imgs/<?php echo $dataProduct['url_img_produit']?>" alt="Cathodic-Ray TV">
     </article>

@@ -22,7 +22,6 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
 
 }
 
-
 // On sort toute la table produits
 $queryProduct = $pdo->query("SELECT * FROM `produits`");
 
@@ -67,6 +66,14 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
     ]
   );
   exit();
+}
+
+// Gestion des retraits paniers
+if(isset($_POST['retraitpanier']) && $_POST['retraitpanier'] == "Retirer du Panier") {
+
+  extract($_POST); //convertir les indices sous la forme de variable
+  $_SESSION['panier' . $dataProduct['nom_produit']]= ($_SESSION['panier' . $nbpanier] - $_POST['nbretrait' . $dataProduct['nom_produit']]);
+  
 }
 
 // Check connection
