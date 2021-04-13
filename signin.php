@@ -11,6 +11,7 @@ if (isset($_POST['connexion'])) {
 	extract($_POST);
 
 	$email = $_POST['email'];
+	// $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 	$mdp = $_POST['mdp'];
 
 	$reqEmail = $pdo->prepare("SELECT email FROM users WHERE email = '{$email}' ");
@@ -25,7 +26,26 @@ if (isset($_POST['connexion'])) {
 
 	$reqAdmin = $pdo->prepare("SELECT rights FROM users WHERE email = '{$email}' ");
 	$reqAdmin->execute();
-	$resultAdmin = $reqAdmin->fetch(PDO::FETCH_ASSOC);
+	$status = $reqAdmin->fetch(PDO::FETCH_ASSOC);
+
+
+	$reqPrenom = $pdo->prepare("SELECT prenom FROM users WHERE email = '{$email}' ");
+	$reqPrenom->execute();
+	$prenom = $reqPrenom->fetch(PDO::FETCH_ASSOC);
+
+
+	$reqNom = $pdo->prepare("SELECT nom FROM users WHERE email = '{$email}' ");
+	$reqNom->execute();
+	$nom = $reqNom->fetch(PDO::FETCH_ASSOC);
+
+	$reqTel = $pdo->prepare("SELECT num_tel FROM users WHERE email = '{$email}' ");
+	$reqTel->execute();
+	$tel = $reqTel->fetch(PDO::FETCH_ASSOC);
+
+	$reqAdresse = $pdo->prepare("SELECT adresse FROM users WHERE email = '{$email}' ");
+	$reqAdresse->execute();
+	$adresse = $reqAdresse->fetch(PDO::FETCH_ASSOC);
+
 
 	//Si retour = 0 alors email pas dans la liste
 	if ((($countemail = $reqEmail->rowCount()) != 0) && (($countMdp = $reqMdp->rowCount()) != 0)) {
@@ -34,9 +54,13 @@ if (isset($_POST['connexion'])) {
 
 		if ($cmpMail == $email) {
 			$_SESSION['user']['prenom'] = $prenom;
+			$_SESSION['user']['prenom'] = $nom;
 			$_SESSION['user']['email'] = $email;
+			$_SESSION['user']['tel'] = $tel;
 			$_SESSION['user']['mdp'] = $mdp;
-			$_SESSION['user']['status'] = $resultAdmin;
+			$_SESSION['user']['status'] = $status;
+			$_SESSION['user']['adresse'] = $adresse;
+
 
 			header('location:profil.php');
 			exit();
