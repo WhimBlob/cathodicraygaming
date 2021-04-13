@@ -42,9 +42,21 @@
                 <label for="email" class="form-label">Votre E-mail</label>
                 <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= htmlspecialchars($champEmail); ?>">
               </div>
+<<<<<<< HEAD
               <div class="top-margin">
                 <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= htmlspecialchars($champMdp); ?>">
+=======
+              <div class="row top-margin">
+                <div class="col-sm-6">
+                  <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= $champMdp; ?>">
+                </div>
+                <div class="col-sm-6">
+                  <label>Confirmation mot de passe <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control">
+                </div>
+>>>>>>> 1ff22a83e4c7a3f2fbe5ae9f089089873fd65d0c
               </div>
               <div class="top-margin">
                 <label for="adresse" class="form-label">Votre Adresse</label>
