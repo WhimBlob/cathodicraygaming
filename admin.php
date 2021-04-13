@@ -1,11 +1,6 @@
-<?php include 'ressources/templates/header.php'; ?>
 <?php include 'ressources/config_admin.php'; ?>
-
-<main>
-<?php
-          // if (users[rights]=1) { ?>
   <article id="commentmodifier">
-    <label for="modifproduit">Choisir un produit à modifier</label>
+    <h2 class="page-title">Choisir un produit à modifier</h2>
     <form action="#" class="profil_content" id="modifProduit" method="post">
       <select id="choixProduit" name="choixProduit">
           <?php
@@ -42,9 +37,7 @@
                 <label for="imgProduit" class="form-label">Photo du Produit</label>
                 <input type="file" class="form-control" id="imgProduit" name="imgProduit">
               </div>
-              <div class="col-lg-4 text-right">
-                 <input type="submit" value="Accepter modifications" name="modifications" id="modifications" class="btn btn-action">
-              </div>
+              <input type="submit" value="Accepter modifications" name="modifications" id="modifications" class="btn btn-action">
     </form>
     <form action="#" class="profil_content" id="suppProduit" method="post">
       <input type='hidden' name='nomProduit' value='<?php echo $choixProduit?>'>
@@ -53,6 +46,7 @@
     <?php } ?>
   </article>
   <article id="commentajouter">
+  <h2 class="page-title">Ajouter un produit</h2>
   <form action="#" class="profil_content" id="ajoutProduit" method="post">
     <input class="btn btn-secondary" id="ajouterProduit" name="ajouterProduit" type="submit" value="Ajouter"></input>
   </form>
@@ -85,7 +79,6 @@
     </form>
     <?php } ?>
   </article>
-</main>
-<?php include 'ressources/templates/footer.php'; ?>
+
 
 
