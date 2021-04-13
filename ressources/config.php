@@ -10,6 +10,11 @@ catch(PDOException $e)
 
 $content = "";
 
+// On organise la session user
+$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$_SESSION['user']['email']}'");
+$queryFetch->execute();
+$user = $queryFetch->fetch();
+
 // On déclaire i pour les boucles produits
 $i = 0;
 
@@ -42,6 +47,7 @@ $prixtotal = 0;
 if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
   while ($dataProduct = $queryProduct->fetch()) 
   {
+    // On interagit avec tous les articles qui sont dans le panier
     if (isset($_SESSION['panier' . $dataProduct['nom_produit']]) && $_SESSION['panier' . $dataProduct['nom_produit']] >0 ) 
     {
       // On diminue le stock en accord avec le nombre de produits achetés
@@ -50,6 +56,27 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
         'stock' => $_SESSION['panier' . $dataProduct['nom_produit']],
         'nom_produit' => $dataProduct['nom_produit']
       ));
+      
+      // On crée un achat
+      $queryInsert = "INSERT INTO
+      achats (id_achat, id_produit, nb_produit, id_user, date_achat) 
+      VALUES (:id_achat, :id_produit, :nb_produit, :id_user, :date_achat)";
+
+      if (!isset($_SESSION['user']['id_user'])) {
+        $_SESSION['user']['id_user'] = 0;
+      }
+
+      $today = date("Y-m-d");
+      $ajoutPrep = $pdo->prepare($queryInsert);
+      $ajoutPrep->execute(
+        [
+          'id_achat' => NULL,
+          'id_produit' => $dataProduct['id_produit'],
+          'nb_produit' => $_SESSION['panier' . $dataProduct['nom_produit']],
+          'id_user' => $user['id_user'],
+          'date_achat' => $today,
+        ]
+      );
     }
     $_SESSION['panier' . $dataProduct['nom_produit']] = 0;
   }
@@ -79,33 +106,6 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
   );
   exit();
 }
-
-// Check connection
-// if(isset($_POST['email']) and isset($_POST['mdp']))
-// {
-//     $email = $_POST['email'];
-//     $mdp = $_POST['mdp'];
-//     $querylogin = "SELECT * FROM `users` WHERE email='$email' and mdp='$mdp'";
-//     $resultlogin = mysql_query($querylogin) or die(mysql_error());
-//     $count = mysql_num_rows($resultlogin);
-//     if ($count == 1){
-//         $_SESSION['email'] = $email;
-//         header('Location: profil.php');
-//     }
-//     else
-//     {
-//         $msg = "Wrong credentials";
-//     }
-// }
-
-// if(isset($_SESSION['email'])) {
-// $firstname = $pdo->prepare('SELECT prenom FROM users WHERE email = ?');
-// $firstname->execute(array($_SESSION['email']));
-
-// $lastname = $pdo->prepare('SELECT nom FROM users WHERE email = ?');
-// $lastname->execute(array($_SESSION['email']));
-// }
-
 
 // Pour maintenir les réponses lors du rechargement de la page
 $content = "";

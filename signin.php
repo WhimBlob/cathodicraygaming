@@ -11,8 +11,16 @@ if (isset($_POST['connexion'])) {
 	extract($_POST);
 
 	$email = $_POST['email'];
+<<<<<<< HEAD
+	$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
+	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
+	$queryFetch->execute();
+	$user = $queryFetch->fetch();
+=======
 	// $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 	$mdp = $_POST['mdp'];
+>>>>>>> 1ff22a83e4c7a3f2fbe5ae9f089089873fd65d0c
 
 	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
 	$queryFetch->execute();
@@ -21,7 +29,6 @@ if (isset($_POST['connexion'])) {
 	$reqEmail = $pdo->prepare("SELECT email FROM users WHERE email = '{$email}' ");
 	$reqEmail->execute();
 	$resultEmail = $reqEmail->fetch(PDO::FETCH_ASSOC);
-
 
 	$reqMdp = $pdo->prepare("SELECT mdp FROM users WHERE mdp = '{$mdp}' AND email = '{$email}' ");
 	$reqMdp->execute();
@@ -38,8 +45,12 @@ if (isset($_POST['connexion'])) {
 		if ($cmpMail == $email) {
 			$_SESSION['user']['email'] = $email;
 			$_SESSION['user']['mdp'] = $mdp;
+<<<<<<< HEAD
+      
+=======
 
 
+>>>>>>> 1ff22a83e4c7a3f2fbe5ae9f089089873fd65d0c
 			header('location:profil.php');
 			exit();
 		} else {
