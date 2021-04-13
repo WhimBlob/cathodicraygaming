@@ -11,11 +11,14 @@ catch(PDOException $e)
 $content = "";
 
 // On organise la session user
+if (isset($_SESSION['user'])) {
+
 $queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$_SESSION['user']['email']}'");
 $queryFetch->execute();
 $user = $queryFetch->fetch();
+}
 
-// On déclaire i pour les boucles produits
+// On déclare i pour les boucles produits
 $i = 0;
 
 // On sort toute la table produits

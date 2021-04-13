@@ -7,13 +7,6 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-<<<<<<< HEAD
-=======
-$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$_SESSION['user']['email']}'");
-$queryFetch->execute();
-$user = $queryFetch->fetch();
-
->>>>>>> 1ff22a83e4c7a3f2fbe5ae9f089089873fd65d0c
 ?>
 
 <?php
