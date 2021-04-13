@@ -11,8 +11,8 @@ if (isset($_POST['connexion'])) {
 	extract($_POST);
 
 	$email = $_POST['email'];
-  	$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-	// $mdp = $_POST['mdp'];
+  	//$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+	$mdp = $_POST['mdp'];
 
 	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
 	$queryFetch->execute();

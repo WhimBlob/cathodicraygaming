@@ -31,30 +31,31 @@
             <form action="profil.php" method="POST">
 
               <div class="top-margin">
-                <label for="prenom" class="form-label">Votre Prénom</label>
-                <input type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= htmlspecialchars($champPrenom); ?>">
+                <label for="prenom" class="form-label">Votre Prénom<span class="text-danger">*</span></label>
+                <input required type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= htmlspecialchars($champPrenom); ?>">
               </div>
               <div class="top-margin">
-                <label for="nom" class="form-label">Votre Nom</label>
-                <input type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= htmlspecialchars($champNom); ?>">
+                <label for="nom" class="form-label">Votre Nom<span class="text-danger">*</span></label>
+                <input required type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= htmlspecialchars($champNom); ?>">
               </div>
               <div class="top-margin">
-                <label for="email" class="form-label">Votre E-mail</label>
-                <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= htmlspecialchars($champEmail); ?>">
+                <label for="email" class="form-label">Votre E-mail<span class="text-danger">*</span></label>
+                <input required type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= htmlspecialchars($champEmail); ?>">
               </div>
               <div class="top-margin">
                 <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= htmlspecialchars($champMdp); ?>">
+                <input required type="password" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= htmlspecialchars($champMdp); ?>">
               </div>
               <div class="top-margin">
-                <label for="adresse" class="form-label">Votre Adresse</label>
-                <input type="text" class="form-control" id="adresse" placeholder="Votre Adresse" name="adresse" value="<?= htmlspecialchars($champAdresse); ?>">
+                <label for="adresse" class="form-label">Votre Adresse<span class="text-danger">*</span></label>
+                <input required type="text" class="form-control" id="adresse" placeholder="Votre Adresse" name="adresse" value="<?= htmlspecialchars($champAdresse); ?>">
               </div>
               <div class="top-margin">
-                <label for="num_tel" class="form-label">Votre Numéro de téléphone</label>
-                <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= htmlspecialchars($champNumTel); ?>">
+                <label for="num_tel" class="form-label">Votre Numéro de téléphone<span class="text-danger">*</span>"</label>
+                <input required type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= htmlspecialchars($champNumTel); ?>">
               </div>
               <div class="col-lg-4 text-right">
+              <form>
                <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
               </div>
             </form>
