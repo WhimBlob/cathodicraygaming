@@ -80,33 +80,6 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
   exit();
 }
 
-// Check connection
-// if(isset($_POST['email']) and isset($_POST['mdp']))
-// {
-//     $email = $_POST['email'];
-//     $mdp = $_POST['mdp'];
-//     $querylogin = "SELECT * FROM `users` WHERE email='$email' and mdp='$mdp'";
-//     $resultlogin = mysql_query($querylogin) or die(mysql_error());
-//     $count = mysql_num_rows($resultlogin);
-//     if ($count == 1){
-//         $_SESSION['email'] = $email;
-//         header('Location: profil.php');
-//     }
-//     else
-//     {
-//         $msg = "Wrong credentials";
-//     }
-// }
-
-// if(isset($_SESSION['email'])) {
-// $firstname = $pdo->prepare('SELECT prenom FROM users WHERE email = ?');
-// $firstname->execute(array($_SESSION['email']));
-
-// $lastname = $pdo->prepare('SELECT nom FROM users WHERE email = ?');
-// $lastname->execute(array($_SESSION['email']));
-// }
-
-
 // Pour maintenir les réponses lors du rechargement de la page
 $content = "";
 $champPrenom = $_POST['prenom'] ?? null;

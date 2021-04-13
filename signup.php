@@ -32,47 +32,30 @@
 
               <div class="top-margin">
                 <label for="prenom" class="form-label">Votre Prénom</label>
-                <input type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= $champPrenom; ?>">
+                <input type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= htmlspecialchars($champPrenom); ?>">
               </div>
               <div class="top-margin">
                 <label for="nom" class="form-label">Votre Nom</label>
-                <input type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= $champNom; ?>">
+                <input type="text" class="form-control" id="nom" placeholder="Votre Nom" name="nom" value="<?= htmlspecialchars($champNom); ?>">
               </div>
               <div class="top-margin">
                 <label for="email" class="form-label">Votre E-mail</label>
-                <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= $champEmail; ?>">
+                <input type="text" class="form-control" id="email" placeholder="Votre E-mail" name="email" value="<?= htmlspecialchars($champEmail); ?>">
               </div>
-              <div class="row top-margin">
-                <div class="col-sm-6">
-                  <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= $champMdp; ?>">
-                </div>
-                <div class="col-sm-6">
-                  <label>Confirm Password <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control">
-                </div>
+              <div class="top-margin">
+                <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= htmlspecialchars($champMdp); ?>">
               </div>
               <div class="top-margin">
                 <label for="adresse" class="form-label">Votre Adresse</label>
-                <input type="text" class="form-control" id="adresse" placeholder="Votre Adresse" name="adresse" value="<?= $champAdresse; ?>">
+                <input type="text" class="form-control" id="adresse" placeholder="Votre Adresse" name="adresse" value="<?= htmlspecialchars($champAdresse); ?>">
               </div>
               <div class="top-margin">
                 <label for="num_tel" class="form-label">Votre Numéro de téléphone</label>
-                <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= $champNumTel; ?>">
+                <input type="text" class="form-control" id="num_tel" placeholder="06 01 23 45 67" name="num_tel" value="<?= htmlspecialchars($champNumTel); ?>">
               </div>
-
-              <hr>
-
-              <div class="row">
-                <div class="col-lg-8">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    I've read the <a href="page_terms.html">Terms and Conditions</a>
-                  </label>
-                </div>
-                <div class="col-lg-4 text-right">
-                 <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
-                </div>
+              <div class="col-lg-4 text-right">
+               <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
               </div>
             </form>
           </div>
