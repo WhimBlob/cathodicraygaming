@@ -1,6 +1,6 @@
 <?php include 'ressources/templates/header.php';
 
-
+ 
 if (isset($_SESSION['user'])) {
 	header('location:profil.php');
 	exit();
