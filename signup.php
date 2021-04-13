@@ -66,12 +66,12 @@
               <div class="row">
                 <div class="col-lg-8">
                   <label class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     I've read the <a href="page_terms.html">Terms and Conditions</a>
                   </label>
                 </div>
                 <div class="col-lg-4 text-right">
-                 <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
+                  <input type="submit" value="S'inscrire" name="envoyer" id="envoyer" class="btn btn-action">
                 </div>
               </div>
             </form>

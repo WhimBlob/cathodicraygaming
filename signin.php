@@ -1,31 +1,10 @@
 <?php include 'ressources/templates/header.php';
-session_start();
-//connexion à la bdd : 
-define('HOSTNAME', 'localhost');
-define('USERNAME', 'root');
-define('PASSWORD', 'root'); //root pour MAC et LINUX
-define('DATABASE', 'cathodic_ray_gamer');
 
-$dsn = 'mysql:host=' . HOSTNAME . ';dbname=' . DATABASE;
-
-try { //on essaie le code...
-	$pdo = new PDO($dsn, USERNAME, PASSWORD);
-} catch (PDOException $e) { //...en cas d'erreur on la capture
-	die('<ul><li>Erreur sur le fichier : ' . $e->getFile() . '</li><li>Erreur à la ligne ' . $e->getLine() . '</li><li>Message d\'erreur : ' . $e->getMessage() . '</li></ul>');
-}
 
 if (isset($_SESSION['user'])) {
-	header('location:profil.php?connect=forbidden');
+	header('location:profil.php');
 	exit();
 }
-
-$content = "";
-
-if (isset($_GET['access']) && $_GET['access'] == 'forbidden') {
-	$content .= '<div style="background:tomato;padding:2%;">Pour accéder à la page profil, vous devez être connecté </div>';
-}
-
-
 
 if (isset($_POST['connexion'])) {
 
@@ -39,7 +18,7 @@ if (isset($_POST['connexion'])) {
 	$resultEmail = $reqEmail->fetch(PDO::FETCH_ASSOC);
 
 
-	$reqMdp = $pdo->prepare("SELECT mdp FROM users WHERE mdp = '{$mdp}' AND email = '{$email}'");
+	$reqMdp = $pdo->prepare("SELECT mdp FROM users WHERE mdp = '{$mdp}' AND email = '{$email}' ");
 	$reqMdp->execute();
 	$resultMdp = $reqMdp->fetch(PDO::FETCH_ASSOC);
 
@@ -57,16 +36,24 @@ if (isset($_POST['connexion'])) {
 			$_SESSION['user']['prenom'] = $prenom;
 			$_SESSION['user']['email'] = $email;
 			$_SESSION['user']['mdp'] = $mdp;
-			$_SESSION['user']['status'] = $status;
+			$_SESSION['user']['status'] = $resultAdmin;
 
 			header('location:profil.php');
 			exit();
 		} else {
-			print("existe pas");
+			$content = "Cette adresse email n'existe pas";
 		}
 	} else {
-		print('Le nom d\'utilisateur ou le mot de passe ne sont pas valides');
+		$content = 'L\'adresse mail ou le mot de passe ne sont pas valides';
 	}
+}
+?>
+
+<?php
+//destruction de la session + redirection
+if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
+	session_destroy(); //on détruit
+	exit();
 }
 ?>
 <!-- container -->
@@ -87,7 +74,7 @@ if (isset($_POST['connexion'])) {
 					<h3 class="thin text-center">Sign in to your account</h3>
 					<p class="text-center text-muted"><a href="signup.php">S'inscrire</a> </p>
 					<hr>
-
+					<p class="text-danger"> <?= $content ?></p>
 					<form action="" method="post">
 						<div class="top-margin">
 							<label>Username/Email <span class="text-danger">*</span></label>
@@ -103,15 +90,6 @@ if (isset($_POST['connexion'])) {
 						<div class="row">
 							<div class="col-lg-8">
 								<b><a href="">Forgot password?</a></b>
-								<button name="deconnexion">deco</button>
-								<?php
-								//destruction de la session + redirection
-								if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
-									session_destroy(); //on détruit
-									exit();
-								}
-								?>
-
 							</div>
 							<div class="col-lg-4 text-right">
 								<button class="btn btn-action" type="submit" name="connexion">Sign in</button>
