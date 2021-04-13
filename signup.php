@@ -45,11 +45,11 @@
               <div class="row top-margin">
                 <div class="col-sm-6">
                   <label for="mdp">Votre mot de passe <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= $champMdp; ?>">
+                  <input type="password" class="form-control" id="mdp" placeholder="Votre mdp" name="mdp" value="<?= $champMdp; ?>">
                 </div>
                 <div class="col-sm-6">
-                  <label>Confirm Password <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control">
+                  <label>Confirmation mot de passe <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control">
                 </div>
               </div>
               <div class="top-margin">

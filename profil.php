@@ -7,10 +7,9 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
+$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$_SESSION['user']['email']}'");
+$queryFetch->execute();
+$user = $queryFetch->fetch();
 
 ?>
 
@@ -25,7 +24,7 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
 
 <main class="container" id='profil'>
     <?php
-    if ($_SESSION['user']['status']['rights'] == 1) {
+    if ($user['rights'] == 1) {
         echo '<h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace administrateur</h2>';
     } else {
         echo '<h2 class="text-center mt-5 mb-5">Bienvenue sur votre espace client</h2>';
@@ -40,39 +39,42 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
     <section class="profil-content">
         <div class="profil">
             <h2 class="page-title">MON PROFIL</h2>
+
             <form action="?session=destroy">
                 <button class="profil_button" name="deconnexion" value="deconnexion">DECONNEXION</button>
             </form>
+            <br>
+            <hr>
         </div>
         <div class="profil">
             <div class="profil_content">
                 <label for="">Nom:</label>
-                <p class="customer_name"><?= $_SESSION['user']['nom'] ?></p>
+                <p class="customer_name"><?= $user['nom'] ?></p>
             </div>
 
             <div class="profil_content">
                 <label for="">Prénom:</label>
-                <p class="customer_name"><?= $_SESSION['user']['prenom'] ?></p>
+                <p class="customer_name"><?= $user['prenom']  ?></p>
             </div>
             <div class="profil_content">
                 <label for="">Adresse e-mail:</label>
-                <p class="customer_mail"><?= $_SESSION['user']['email'] ?></p>
+                <p class="customer_mail"><?= $user['email']  ?></p>
             </div>
 
             <div class="profil_content">
                 <label for="">Mot de passe:</label>
-                <p class="customer_passwrd"><?= $_SESSION['user']['mdp'] ?></p>
+                <p class="customer_passwrd"><?= $user['mdp']  ?></p>
             </div>
 
 
             <div class="profil_content">
                 <label for="">Numéro de téléphone:</label>
-                <p class="customer_phone"><?= '0' . $_SESSION['user']['tel']['num_tel'] ?></p>
+                <p class="customer_phone"><?= '0' . $user['num_tel']  ?></p>
             </div>
 
             <div class="profil_content">
                 <label for="">Adresse de livraison:</label>
-                <p class="customer_phone"><?= $_SESSION['user']['adresse']['adresse'] ?></p>
+                <p class="customer_phone"><?= $user['adresse']  ?></p>
             </div>
         </div>
 
@@ -82,9 +84,7 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
         </div>
     </section>
     <section>
-        <?php if (isset($_SESSION['user'])) {
-        }
-        ?>
+
 
     </section>
 </main>

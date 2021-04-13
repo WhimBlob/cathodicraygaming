@@ -14,6 +14,10 @@ if (isset($_POST['connexion'])) {
 	// $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 	$mdp = $_POST['mdp'];
 
+	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
+	$queryFetch->execute();
+	$user = $queryFetch->fetch();
+
 	$reqEmail = $pdo->prepare("SELECT email FROM users WHERE email = '{$email}' ");
 	$reqEmail->execute();
 	$resultEmail = $reqEmail->fetch(PDO::FETCH_ASSOC);
@@ -23,43 +27,17 @@ if (isset($_POST['connexion'])) {
 	$reqMdp->execute();
 	$resultMdp = $reqMdp->fetch(PDO::FETCH_ASSOC);
 
-
-	$reqAdmin = $pdo->prepare("SELECT rights FROM users WHERE email = '{$email}' ");
-	$reqAdmin->execute();
-	$status = $reqAdmin->fetch(PDO::FETCH_ASSOC);
-
-
-	$reqPrenom = $pdo->prepare("SELECT prenom FROM users WHERE email = '{$email}' ");
-	$reqPrenom->execute();
-	$prenom = $reqPrenom->fetch(PDO::FETCH_ASSOC);
-
-
-	$reqNom = $pdo->prepare("SELECT nom FROM users WHERE email = '{$email}' ");
-	$reqNom->execute();
-	$nom = $reqNom->fetch(PDO::FETCH_ASSOC);
-
-	$reqTel = $pdo->prepare("SELECT num_tel FROM users WHERE email = '{$email}' ");
-	$reqTel->execute();
-	$tel = $reqTel->fetch(PDO::FETCH_ASSOC);
-
-	$reqAdresse = $pdo->prepare("SELECT adresse FROM users WHERE email = '{$email}' ");
-	$reqAdresse->execute();
-	$adresse = $reqAdresse->fetch(PDO::FETCH_ASSOC);
-
+	$countemail = $resultEmail;
+	$countMdp = $resultMdp;
 
 	//Si retour = 0 alors email pas dans la liste
 	if ((($countemail = $reqEmail->rowCount()) != 0) && (($countMdp = $reqMdp->rowCount()) != 0)) {
 
-		$cmpMail = $resultEmail['email'];
+		$cmpMail = $user['email'];
 
 		if ($cmpMail == $email) {
-			$_SESSION['user']['prenom'] = $prenom;
-			$_SESSION['user']['prenom'] = $nom;
 			$_SESSION['user']['email'] = $email;
-			$_SESSION['user']['tel'] = $tel;
 			$_SESSION['user']['mdp'] = $mdp;
-			$_SESSION['user']['status'] = $status;
-			$_SESSION['user']['adresse'] = $adresse;
 
 
 			header('location:profil.php');
@@ -80,6 +58,7 @@ if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
 	exit();
 }
 ?>
+
 <!-- container -->
 <main class="container" id="inscription">
 	<ul class="breadcrumb">
