@@ -73,3 +73,5 @@
 
 
 </section>
+
+<?php include 'ressources/templates/footer.php'; ?>

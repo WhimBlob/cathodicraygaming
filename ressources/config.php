@@ -16,8 +16,9 @@ $i = 0;
 // On sort toute la table produits
 $queryProduct = $pdo->query("SELECT * FROM `produits`");
 
-// Les trois premiers produits
-$queryProduct3 = $pdo->query("SELECT * FROM `produits` WHERE id_produit < 4");
+// Les trois derniers produits
+$queryProduct3 = $pdo->query("SELECT * FROM `produits` ORDER BY id_produit DESC
+LIMIT 3");
 
 // Fonction pour afficher les stocks sur les trois produits
 function Availability($nbproduct)
@@ -43,12 +44,14 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
   {
     if (isset($_SESSION['panier' . $dataProduct['nom_produit']]) && $_SESSION['panier' . $dataProduct['nom_produit']] >0 ) 
     {
+      // On diminue le stock en accord avec le nombre de produits achetés
       $achatPrep = $pdo->prepare("UPDATE produits SET stock = stock - :stock WHERE nom_produit = :nom_produit");
       $achatPrep->execute(array(
         'stock' => $_SESSION['panier' . $dataProduct['nom_produit']],
         'nom_produit' => $dataProduct['nom_produit']
       ));
     }
+    $_SESSION['panier' . $dataProduct['nom_produit']] = 0;
   }
 }
 
@@ -115,19 +118,3 @@ $champNumTel = $_POST['num_tel'] ?? null;
 
 ?>
 
-<?php
-// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
-if (isset($_FILES['imageproduit']) AND $_FILES['imageproduit']['error'] == 0)
-{
-                // Testons si l'extension est autorisée
-                $infosfichier = pathinfo($_FILES['imageproduit']['name']);
-                $extension_upload = $infosfichier['extension'];
-                $extensions_autorisees = array('jpg', 'jpeg', 'png');
-                if (in_array($extension_upload, $extensions_autorisees))
-                {
-                        // On peut valider le fichier et le stocker définitivement
-                        move_uploaded_file($_FILES['imageproduit']['tmp_name'], 'uploads/' . basename($_FILES['imageproduit']['name']));
-                        echo "Image en ligne !";
-                }
-}
-?>
