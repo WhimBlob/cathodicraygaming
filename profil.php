@@ -73,11 +73,25 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
                 <p class="customer_phone"><?= $user['adresse']  ?></p>
             </div>
         </div>
-
-
         <div class="order">
             <h2 class="page-title">MES COMMANDES</h2>
         </div>
+        <?php while ($dataAchat = $queryAchat->fetch()) {
+        ?>
+        <article class = "product">
+          <div class = productext>
+            <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $dataAchat['nom_produit']?>'><?php echo $dataAchat['nb_produit'] . ' ' . $dataAchat['nom_produit']?></a></h3>
+            <p class = "prix">Pour un total de <?php echo $dataAchat['prix']*$dataAchat['nb_produit']?>€</p>
+            <p>Achat réalisé le <?php echo $dataAchat['date_achat']?></p>
+          </div>
+          <img id = "product1img" class = "productimg" src="ressources/imgs/<?php echo $dataAchat['url_img_produit']?>" alt="Cathodic-Ray TV">
+        </article>
+          <?php
+          }
+          ?>
+        <?php if ($user['rights'] == 1) {
+          include 'admin.php';
+        } ?>
     </section>
     <section>
 

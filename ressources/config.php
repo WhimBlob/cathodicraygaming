@@ -85,6 +85,12 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
   }
 }
 
+// Récupérer les achats
+$queryAchat = $pdo->query("SELECT * FROM users u
+INNER JOIN achats a ON u.id_user = a.id_user
+INNER JOIN produits p ON p.id_produit = a.id_produit
+WHERE email = '{$_SESSION['user']['email']}'");
+
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
