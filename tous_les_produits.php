@@ -9,7 +9,7 @@
         <div class = productext>
           <h3 class = "productname" id = "productname1"><a href='fiche_produit.php?product=<?php echo $dataProduct['nom_produit']?>'><?php echo $dataProduct['nom_produit']?></a></h3>
           <p class = "description"><?php echo $dataProduct['description_produit']?></p>
-          <p class = "prix"><?php echo $dataProduct['prix']?></p>
+          <p class = "prix"><?php echo $dataProduct['prix']?>€</p>
           <p class = "stock"><?php echo Availability($dataProduct['stock'])?></p>
         </div>
         <img id = "product1img" class = "productimg" src="ressources/imgs/<?php echo $dataProduct['url_img_produit']?>" alt="Cathodic-Ray TV">

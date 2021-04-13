@@ -18,7 +18,7 @@
         <!-- Description -->
         <p><?php echo $productDesc ?></p>
       <!-- Availability -->
-        <p><?php echo $availability ?></p>
+        <p><?php echo Availability($productStock) ?></p>
       <!-- Ajout Panier -->
       <!-- Prix -->
         <p class="price"><?php echo $productPrice ?>€</p>

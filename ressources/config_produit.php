@@ -32,16 +32,4 @@ if(isset($_POST['ajoutpanier']) && $_POST['ajoutpanier'] == "Ajouter au panier")
   extract($_POST); //convertir les indices sous la forme de variable
   $_SESSION['panier' . $product]= ($_SESSION['panier' . $product] + $_POST['nbajout' . $product]);
 }
-
-// Gestion du texte des stocks
-if($productStock > 10) {
-  $availability = 'En Stock';
-}
-  else if($productStock > 0) {
-    $availability = 'Il en reste ' . $productStock;
-  }
-  else {
-    $availability = 'Non disponible';
-  }
-
 ?>
