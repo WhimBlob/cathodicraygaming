@@ -1,4 +1,5 @@
 <?php include 'ressources/templates/header.php'; ?>
+
 <main class="container" id="panier">
   <ul class="breadcrumb">
     <li><a href="index.html">Accueil</a></li>
