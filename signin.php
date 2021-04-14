@@ -8,35 +8,16 @@ if (isset($_SESSION['user'])) {
 
 if (isset($_POST['connexion'])) 
 {
-
 	extract($_POST);
+	try {
+    $queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
+    $queryFetch->execute();
+    $user = $queryFetch->fetch();
+  } catch(Exception) {
+    $content = "Cette adresse email n'existe pas";
+  }
 
-	$email = $_POST['email'];
-  	//$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-	$mdp = $_POST['mdp'];
-
-	
-	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
-	$queryFetch->execute();
-	$user = $queryFetch->fetch();
-
-	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
-	$queryFetch->execute();
-	$user = $queryFetch->fetch();
-
-	$reqEmail = $pdo->prepare("SELECT email FROM users WHERE email = '{$email}' ");
-	$reqEmail->execute();
-	$resultEmail = $reqEmail->fetch(PDO::FETCH_ASSOC);
-
-	$reqMdp = $pdo->prepare("SELECT mdp FROM users WHERE mdp = '{$mdp}' AND email = '{$email}' ");
-	$reqMdp->execute();
-	$resultMdp = $reqMdp->fetch(PDO::FETCH_ASSOC);
-
-	$countemail = $resultEmail;
-	$countMdp = $resultMdp;
-
-	//Si retour = 0 alors email pas dans la liste
-	if ((($countemail = $reqEmail->rowCount()) != 0) && (($countMdp = $reqMdp->rowCount()) != 0)) 
+	if (isset($user['email']) && (password_verify($mdp, $user['mdp'])))
 	{
 		
 		$cmpMail = $user['email'];
@@ -53,9 +34,6 @@ if (isset($_POST['connexion']))
 	{
 		$content = "Cette adresse email n'existe pas";
 	}
-} else 
-{
-		$content = 'L\'adresse mail ou le mot de passe ne sont pas valides';
 }
 
 ?>
@@ -96,16 +74,8 @@ if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
 							<label>Password <span class="text-danger">*</span></label>
 							<input type="password" name="mdp" class="form-control">
 						</div>
-
-						<hr>
-
-						<div class="row">
-							<div class="col-lg-8">
-								<b><a href="">Forgot password?</a></b>
-							</div>
-							<div class="col-lg-4 text-right">
-								<button class="btn btn-action" type="submit" name="connexion">Sign in</button>
-							</div>
+						<div class="top-margin">
+							<button class="btn btn-action" type="submit" name="connexion">Sign in</button>
 						</div>
 					</form>
 				</div>

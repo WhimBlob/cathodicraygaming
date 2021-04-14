@@ -1,3 +1,5 @@
+
+
 <?php
 try
 {
@@ -85,32 +87,58 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
   }
 }
 
+// Récupérer les achats
+if (isset($_SESSION['user']['email'])) {
+$queryAchat = $pdo->query("SELECT * FROM users u
+INNER JOIN achats a ON u.id_user = a.id_user
+INNER JOIN produits p ON p.id_produit = a.id_produit
+WHERE email = '{$_SESSION['user']['email']}'");
+}
+
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
   extract($_POST); //convertir les indices sous la forme de variable
+  if (preg_match('/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
+    if (strlen($mdp) < 8 || strlen($mdp) >20) {
+      if (preg_match('/[_a-z0-9-\s]$/', $adresse)) {
+        if (preg_match("/^([a-zA-Z' ]+)$/", $nom)) {
+          if (preg_match("/^([a-zA-Z-\-' ]+)$/", $prenom)) {
+            if (preg_match("/^([0-9' ]+)$/", $num_tel) && iconv_strlen($num_tel = 10 )){
+              
+              $mdpCrypt = password_hash($mdp, PASSWORD_DEFAULT);
 
-  $mdpCrypt = password_hash($mdp, PASSWORD_DEFAULT);
+              $queryInsert = "INSERT INTO
+              users (id_user, prenom, nom, email, mdp, adresse, num_tel, rights) VALUES (:id_user, :prenom, :nom, :email, :mdp, :adresse, :num_tel, '0')";
 
-  $queryInsert = "INSERT INTO
-  users (id_user, prenom, nom, email, mdp, adresse, num_tel, rights) VALUES (:id_user, :prenom, :nom, :email, :mdp, :adresse, :num_tel, '0')";
+              $reqPrep = $pdo->prepare($queryInsert);
+              $reqPrep->execute(
+                [
+                  'id_user' => NULL,
+                  'prenom' => $prenom,
+                  'nom' => $nom,
+                  'email' => $email,
+                  'mdp' => $mdpCrypt, //Puisque mot de passe crypté
+                  'adresse' => $adresse,
+                  'num_tel' => $num_tel,
+                ]
+              );
+              $_SESSION['user']['email'] = $email;
+              header('location:profil.php');
+              exit();
 
-  $reqPrep = $pdo->prepare($queryInsert);
-  $reqPrep->execute(
-    [
-      'id_user' => NULL,
-      'prenom' => $prenom,
-      'nom' => $nom,
-      'email' => $email,
-      'mdp' => $mdpCrypt, //Puisque mot de passe crypté
-      'adresse' => $adresse,
-      'num_tel' => $num_tel,
-    ]
-  );
-  $_SESSION['user']['email'] = $email;
-  $_SESSION['user']['mdp'] = $mdp;
-  header('location:profil.php?');
-  exit();
+            }
+            else {$errorForm = 'Veuillez entrer un numéro de téléphone correct';}
+          }
+          else {$errorForm = 'Veuillez entrer un vrai prenom';}
+        }
+        else {$errorForm = 'Veuillez entrer un vrai nom';}
+      }
+      else {$errorForm = 'Veuillez entrer une vraie adresse';}
+    }
+    else {$errorForm = 'Veuillez entrer un mot de passe d\'une longueur comprise entre 8 et 20 caractères';}
+  }
+  else {$errorForm =  'Veuillez entrer une adresse e-mail correcte';}
 }
 
 // Pour maintenir les réponses lors du rechargement de la page
@@ -122,5 +150,37 @@ $champMdp = $_POST['mdp'] ?? null;
 $champAdresse = $_POST['adresse'] ?? null;
 $champNumTel = $_POST['num_tel'] ?? null;
 
+// Modifications du profil
+// On récupère le formulaire des modifications
+if(isset($_POST['validerProfil']) && $_POST['validerProfil'] == "Valider le profil") {
+
+  extract($_POST); //convertir les indices sous la forme de variable
+  if (isset($modifMdp)) {$modifMdpCrypt = password_hash($modifMdp, PASSWORD_DEFAULT);}
+          $modifProfPrep = $pdo->prepare("UPDATE users SET 
+            email = :email2, 
+            mdp = :mdp,
+            adresse = :adresse,
+            num_tel = :num_tel
+            WHERE email = :email");
+
+          $modifProfPrep->execute(array(
+            'email2'=> $modifEmail,
+            'mdp' => $modifMdp,
+            'adresse' => $modifAdresse,
+            'num_tel' => $modifNumTel,
+            'email' => $user['email']
+          ));
+          $_SESSION['user']['email'] = $modifEmail;
+}
+
+
+// On récupère le formulaire de la suppression
+if(isset($_POST['totalNuke']) && $_POST['totalNuke'] == "Total Nuke") {
+  extract($_POST); //convertir les indices sous la forme de variable
+  $suppProduit = $pdo->prepare('DELETE FROM users WHERE email = :email');
+  $suppProduit->execute(array(
+    'email' => $user['email']
+  ));
+}
 ?>
 

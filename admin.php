@@ -37,11 +37,11 @@
                 <label for="imgProduit" class="form-label">Photo du Produit</label>
                 <input type="file" class="form-control" id="imgProduit" name="imgProduit">
               </div>
-              <input type="submit" value="Accepter modifications" name="modifications" id="modifications" class="btn btn-action">
+              <input type="submit" value="Accepter modifications" name="modifications" id="modifications" class="margin-top btn btn-action">
     </form>
     <form action="#" class="profil_content" id="suppProduit" method="post">
       <input type='hidden' name='nomProduit' value='<?php echo $choixProduit?>'>
-      <input type="submit" value="Nuke" name="nuke" id="nuke" class="btn btn-action">
+      <input type="submit" value="Nuke" name="nuke" id="nuke" class="top-margin btn btn-action">
     </form>
     <?php } ?>
   </article>
@@ -73,7 +73,7 @@
                 <label for="imgAddProduit" class="form-label">Photo du Produit</label>
                 <input type="file" class="form-control" id="imgAddProduit" name="imgAddProduit">
               </div>
-              <div class="col-lg-4 text-right">
+              <div class="top-margin col-lg-4 text-right">
                  <input type="submit" value="Créer nouveau produit" name="creation" id="creation" class="btn btn-action">
               </div>
     </form>
