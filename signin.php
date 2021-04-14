@@ -17,6 +17,7 @@ if (isset($_POST['connexion']))
     $content = "Cette adresse email n'existe pas";
   }
 
+  	
 	if (isset($user['email']) && (password_verify($mdp, $user['mdp'])))
 	{
 		
