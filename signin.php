@@ -42,13 +42,13 @@ if (isset($_POST['connexion']))
 		$cmpMail = $user['email'];
 
 		if ($cmpMail == $email) 
-		{
-
+		{			
 			$_SESSION['user']['email'] = $email;
 			$_SESSION['user']['mdp'] = $mdp;
 			header('location:profil.php');
 			exit();
 		}
+		
 	} else 
 	{
 		$content = "Cette adresse email n'existe pas";
@@ -83,7 +83,7 @@ if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
 		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<h3 class="thin text-center">Sign in to your account</h3>
+					<h3 class="thin text-center">Connexion à l'espace personnel</h3>
 					<p class="text-center text-muted"><a href="signup.php">S'inscrire</a> </p>
 					<hr>
 					<p class="text-danger"> <?= $content ?></p>
