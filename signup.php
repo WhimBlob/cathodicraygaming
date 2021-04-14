@@ -1,5 +1,10 @@
 <?php include 'ressources/templates/header.php'; ?>
 
+<?php if (isset($_SESSION['user'])) {
+	header('location:profil.php');
+	exit();
+}
+?>
 
 <head>
   <title>Sign up - Progressus Bootstrap template</title>
@@ -28,8 +33,8 @@
             <p class="text-center text-muted"><a href="signin.php">Log in</a></p>
             <hr>
 
-            <form action="profil.php" method="POST">
-
+            <form action="#" method="POST">
+              <h3><?php if (isset($errorForm)) {echo $errorForm;} ?></h3>
               <div class="top-margin">
                 <label for="prenom" class="form-label">Votre Prénom<span class="text-danger">*</span></label>
                 <input required type="text" class="form-control" id="prenom" placeholder="Votre Prénom" name="prenom" value="<?= htmlspecialchars($champPrenom); ?>">
