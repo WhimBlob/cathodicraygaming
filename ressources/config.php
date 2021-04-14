@@ -100,11 +100,12 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
   extract($_POST); //convertir les indices sous la forme de variable
   if (preg_match('/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
-    if (iconv_strlen($mdp) < 8 || iconv_strlen($mdp) >20) {
-      if (preg_match('/[_a-z0-9-\s])$/', $adresse)) {
+    if (strlen($mdp) < 8 || strlen($mdp) >20) {
+      if (preg_match('/[_a-z0-9-\s]$/', $adresse)) {
         if (preg_match("/^([a-zA-Z' ]+)$/", $nom)) {
           if (preg_match("/^([a-zA-Z-\-' ]+)$/", $prenom)) {
             if (preg_match("/^([0-9' ]+)$/", $num_tel) && iconv_strlen($num_tel = 10 )){
+              
               $mdpCrypt = password_hash($mdp, PASSWORD_DEFAULT);
 
               $queryInsert = "INSERT INTO
@@ -122,7 +123,10 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
                   'num_tel' => $num_tel,
                 ]
               );
+              $_SESSION['user']['email'] = $email;
+              header('location:profil.php');
               exit();
+
             }
             else {$errorForm = 'Veuillez entrer un numéro de téléphone correct';}
           }
