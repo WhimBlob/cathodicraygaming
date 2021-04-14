@@ -87,7 +87,6 @@ if(isset($_POST['acheter']) && $_POST['acheter'] == "Acheter") {
   }
 }
 
-<<<<<<< HEAD
 // Récupérer les achats
 if (isset($_SESSION['user']['email'])) {
 $queryAchat = $pdo->query("SELECT * FROM users u
@@ -96,13 +95,10 @@ INNER JOIN produits p ON p.id_produit = a.id_produit
 WHERE email = '{$_SESSION['user']['email']}'");
 }
 
-=======
->>>>>>> cb48d33f4d951ec52081ae4e53f671d7e2d428e5
 // Get the register form
 if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
   extract($_POST); //convertir les indices sous la forme de variable
-<<<<<<< HEAD
   if (preg_match('/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
     if (iconv_strlen($mdp) < 8 || iconv_strlen($mdp) >20) {
       if (preg_match('/[_a-z0-9-\s])$/', $adresse)) {
@@ -139,30 +135,6 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
     else {$errorForm = 'Veuillez entrer un mot de passe d\'une longueur comprise entre 8 et 20 caractères';}
   }
   else {$errorForm =  'Veuillez entrer une adresse e-mail correcte';}
-=======
-
-  $mdpCrypt = password_hash($mdp, PASSWORD_DEFAULT);
-
-  $queryInsert = "INSERT INTO
-  users (id_user, prenom, nom, email, mdp, adresse, num_tel, rights) VALUES (:id_user, :prenom, :nom, :email, :mdp, :adresse, :num_tel, '0')";
-
-  $reqPrep = $pdo->prepare($queryInsert);
-  $reqPrep->execute(
-    [
-      'id_user' => NULL,
-      'prenom' => $prenom,
-      'nom' => $nom,
-      'email' => $email,
-      'mdp' => $mdpCrypt, //Puisque mot de passe crypté
-      'adresse' => $adresse,
-      'num_tel' => $num_tel,
-    ]
-  );
-  $_SESSION['user']['email'] = $email;
-  $_SESSION['user']['mdp'] = $mdp;
-  header('location:profil.php?');
-  exit();
->>>>>>> cb48d33f4d951ec52081ae4e53f671d7e2d428e5
 }
 
 // Pour maintenir les réponses lors du rechargement de la page
