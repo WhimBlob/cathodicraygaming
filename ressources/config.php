@@ -100,7 +100,7 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
 
   extract($_POST); //convertir les indices sous la forme de variable
   if (preg_match('/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $email)) {
-    if (strlen($mdp) < 8 || strlen($mdp) >20) {
+    if ((strlen($mdp) > 8 || strlen($mdp) < 20) && (preg_match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"))) {
       if (preg_match('/[_a-z0-9-\s]$/', $adresse)) {
         if (preg_match("/^([a-zA-Z' ]+)$/", $nom)) {
           if (preg_match("/^([a-zA-Z-\-' ]+)$/", $prenom)) {
@@ -136,7 +136,7 @@ if(isset($_POST['envoyer']) && $_POST['envoyer'] == "S'inscrire") {
       }
       else {$errorForm = 'Veuillez entrer une vraie adresse';}
     }
-    else {$errorForm = 'Veuillez entrer un mot de passe d\'une longueur comprise entre 8 et 20 caractères';}
+    else {$errorForm = 'Veuillez entrer un mot de passe d\'une longueur comprise entre 8 et 20 caractères et contenir au moins 1maj, 1min,1 chiffre et un caractere special';}
   }
   else {$errorForm =  'Veuillez entrer une adresse e-mail correcte';}
 }
@@ -165,7 +165,7 @@ if(isset($_POST['validerProfil']) && $_POST['validerProfil'] == "Valider le prof
 
           $modifProfPrep->execute(array(
             'email2'=> $modifEmail,
-            'mdp' => $modifMdp,
+            'mdp' => $modifMdpCrypt,
             'adresse' => $modifAdresse,
             'num_tel' => $modifNumTel,
             'email' => $user['email']
