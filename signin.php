@@ -74,7 +74,7 @@ if (isset($_GET['session']) && $_GET['session'] == 'deconnexion') {
 							<label>Password <span class="text-danger">*</span></label>
 							<input type="password" name="mdp" class="form-control">
 						</div>
-						<div class="col-lg-4 text-right">
+						<div class="top-margin">
 							<button class="btn btn-action" type="submit" name="connexion">Sign in</button>
 						</div>
 					</form>

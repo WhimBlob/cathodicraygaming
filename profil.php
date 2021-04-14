@@ -42,7 +42,8 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
             <br>
             <hr>
         </div>
-        <div class="profil">
+        <form action="#" class="profil" method="POST">
+        <?php if(!isset($_POST['modifierProfil'])) {     ?>
             <div class="profil_content">
                 <label for="">Nom:</label>
                 <p class="customer_name"><?= $user['nom'] ?></p>
@@ -55,11 +56,11 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
             <div class="profil_content">
                 <label for="">Adresse e-mail:</label>
                 <p class="customer_mail"><?= $user['email']  ?></p>
+
             </div>
 
             <div class="profil_content">
                 <label for="">Mot de passe:</label>
-                <p class="customer_passwrd"><?= $user['mdp']  ?></p>
             </div>
 
 
@@ -72,7 +73,41 @@ if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'deconnexion') {
                 <label for="">Adresse de livraison:</label>
                 <p class="customer_phone"><?= $user['adresse']  ?></p>
             </div>
-        </div>
+            <input class="btn btn-secondary" id="modifierProfil" name="modifierProfil" type="submit" value="Modifier le profil"></input>
+        </form>
+        <?php } if(isset($_POST['modifierProfil']) && $_POST['modifierProfil'] == "Modifier le profil") {     ?>
+        <form action="#" class="profil" method="POST">
+          <div class="profil_content">
+                <label for="">Nom:</label>
+                <p class="customer_name"><?= $user['nom'] ?></p>
+            </div>
+
+            <div class="profil_content">
+                <label for="">Prénom:</label>
+                <p class="customer_name"><?= $user['prenom']  ?></p>
+            </div>
+            <div class="profil_content">
+                <label for="modifEmail">Adresse e-mail:</label>
+                <input type="text" name="modifEmail" class="customer_mail" value = "<?= $user['email']  ?>">
+            </div>
+            <div class="profil_content">
+                <label for="modifMdp">Mot de Passe:</label>
+                <input type="password" name="modifMdp">
+            </div>
+            <div class="profil_content">
+                <label for="modifNumTel">Numéro de téléphone:</label>
+                <input type="text" name="modifNumTel" class="customer_phone" value = "<?= $user['num_tel']  ?>">
+            </div>
+            <div class="profil_content">
+                <label for="modifAdresse">Adresse de livraison:</label>
+                <input type="text" name="modifAdresse" class="customer_mail" value = "<?= $user['adresse']  ?>">
+            </div>
+            <input class="btn btn-secondary" id="validerProfil" name="validerProfil" type="submit" value="Valider le profil"></input>
+          </form>
+    <form action="#" class="profil_content" id="suppProfil" method="post">
+      <input type="submit" value="Total Nuke" name="totalnuke" id="nuke" class="top-margin btn btn-action">
+    </form>
+    <?php } ?>
         <div class="order">
             <h2 class="page-title">MES COMMANDES</h2>
         </div>

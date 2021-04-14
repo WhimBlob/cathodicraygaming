@@ -150,5 +150,37 @@ $champMdp = $_POST['mdp'] ?? null;
 $champAdresse = $_POST['adresse'] ?? null;
 $champNumTel = $_POST['num_tel'] ?? null;
 
+// Modifications du profil
+// On récupère le formulaire des modifications
+if(isset($_POST['validerProfil']) && $_POST['validerProfil'] == "Valider le profil") {
+
+  extract($_POST); //convertir les indices sous la forme de variable
+  if (isset($modifMdp)) {$modifMdpCrypt = password_hash($modifMdp, PASSWORD_DEFAULT);}
+          $modifProfPrep = $pdo->prepare("UPDATE users SET 
+            email = :email2, 
+            mdp = :mdp,
+            adresse = :adresse,
+            num_tel = :num_tel
+            WHERE email = :email");
+
+          $modifProfPrep->execute(array(
+            'email2'=> $modifEmail,
+            'mdp' => $modifMdp,
+            'adresse' => $modifAdresse,
+            'num_tel' => $modifNumTel,
+            'email' => $user['email']
+          ));
+          $_SESSION['user']['email'] = $modifEmail;
+}
+
+
+// On récupère le formulaire de la suppression
+if(isset($_POST['totalNuke']) && $_POST['totalNuke'] == "Total Nuke") {
+  extract($_POST); //convertir les indices sous la forme de variable
+  $suppProduit = $pdo->prepare('DELETE FROM users WHERE email = :email');
+  $suppProduit->execute(array(
+    'email' => $user['email']
+  ));
+}
 ?>
 
