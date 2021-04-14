@@ -6,7 +6,8 @@ if (isset($_SESSION['user'])) {
 	exit();
 }
 
-if (isset($_POST['connexion'])) {
+if (isset($_POST['connexion'])) 
+{
 
 	extract($_POST);
 
@@ -14,6 +15,7 @@ if (isset($_POST['connexion'])) {
   	//$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 	$mdp = $_POST['mdp'];
 
+	
 	$queryFetch = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
 	$queryFetch->execute();
 	$user = $queryFetch->fetch();
@@ -34,23 +36,28 @@ if (isset($_POST['connexion'])) {
 	$countMdp = $resultMdp;
 
 	//Si retour = 0 alors email pas dans la liste
-	if ((($countemail = $reqEmail->rowCount()) != 0) && (($countMdp = $reqMdp->rowCount()) != 0)) {
-
+	if ((($countemail = $reqEmail->rowCount()) != 0) && (($countMdp = $reqMdp->rowCount()) != 0)) 
+	{
+		
 		$cmpMail = $user['email'];
 
-		if ($cmpMail == $email) {
+		if ($cmpMail == $email) 
+		{
+
 			$_SESSION['user']['email'] = $email;
 			$_SESSION['user']['mdp'] = $mdp;
-      
 			header('location:profil.php');
 			exit();
-		} else {
-			$content = "Cette adresse email n'existe pas";
 		}
-	} else {
-		$content = 'L\'adresse mail ou le mot de passe ne sont pas valides';
+	} else 
+	{
+		$content = "Cette adresse email n'existe pas";
 	}
+} else 
+{
+		$content = 'L\'adresse mail ou le mot de passe ne sont pas valides';
 }
+
 ?>
 
 <?php
